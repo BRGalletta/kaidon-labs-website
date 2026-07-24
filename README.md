@@ -9,6 +9,12 @@ index.html              Marketing site homepage
 css/styles.css          All site styles (shared by marketing pages and blog)
 js/script.js            Nav toggle, footer year, contact form handling
 
+ai-audit/index.html     Self-serve AI audit chat page (lead-gate form -> chat -> result)
+css/audit-chat.css      Styles for the ai-audit page only
+js/audit-chat.js        Lead-gate + chat + result view logic for ai-audit
+api/audit-chat/         Vercel serverless functions backing ai-audit (see "AI Audit chat" below)
+api/schema.sql          One-time SQL for the website_audit_leads Supabase table
+
 blog/posts/              Published post source files (Markdown + frontmatter)
 blog/drafts/              Pending post source files awaiting auto-publish
 blog/index.html          Generated: chronological post listing (do not hand-edit)
@@ -109,6 +115,23 @@ The net effect: a draft written today publishes automatically ~24 hours later, w
 - ~~**Formspree form ID**~~ — done. `index.html` contact form now posts to `https://formspree.io/f/mjgnadvg`.
 - **Contact email** — `brian@kaidonlabs.com` appears in `index.html` (footer + contact section) and in every generated blog page footer (via `scripts/template.js`). Marked with HTML comments; confirm this is the correct inbox before launch.
 - **Social links** — the footer social icons (LinkedIn, X, GitHub) in `index.html` and `scripts/template.js` currently point to `href="#"`. Replace with real profile URLs before launch. Marked with an HTML comment above the icons.
+
+## AI Audit chat (`/ai-audit`)
+
+A self-serve chat a prospect can run directly on the site: a lead-gate form (name/email/company), then a few minutes of adaptive conversation with an AI intake assistant, ending in 2-3 concrete AI-opportunity areas shown on-screen immediately — no dollar figures or package pricing, by design (see `api/audit-chat/_shared.js`'s system/synthesis prompts for why). You get a fuller internal email via Resend the moment each chat completes, including a suggested audit-fee ballpark for your eyes only.
+
+**This feature needs a real backend and will not work on GitHub Pages** — GitHub Pages only serves static files, and this needs the serverless functions under `api/audit-chat/`. It only works when the site is accessed through Vercel (already connected to this repo) or a custom domain pointed at Vercel. Decide before sharing the `/ai-audit` link with anyone: cut the whole site over to Vercel as primary, or just link this page from the Vercel URL while GitHub Pages keeps serving everything else as it does today. Nothing about the code differs either way.
+
+### One-time setup before this works live
+
+1. **Supabase**: this uses its own dedicated Supabase project — separate from the one hosting the agency's `pipeline` table, so anonymous website leads never mix with vetted client data. Run `api/schema.sql` once in that project's SQL editor (Project → SQL Editor → New query).
+2. **Resend**: sign up at resend.com if you don't already have an account, and generate an API key. `_notify.js` sends from `onboarding@resend.dev` by default (works immediately, no domain verification needed) — verify the `kaidonlabs.com` domain in Resend later if you want the notification email to come from a `@kaidonlabs.com` address instead.
+3. **Vercel environment variables** (Project Settings → Environment Variables): `ANTHROPIC_API_KEY`, `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (from the *dedicated AI-audit-leads* Supabase project's Project Settings → API — not the `agency-secrets.env` values, those are the agency pipeline's separate project), `RESEND_API_KEY`, and optionally `NOTIFY_EMAIL` (defaults to `brian@kaidonlabs.com`).
+4. Redeploy after setting the env vars so the serverless functions pick them up.
+
+### Local testing
+
+`npm install` picks up the new `@anthropic-ai/sdk` and `resend` dependencies. To test the API handlers locally you'll need the Vercel CLI (`npm i -g vercel`, then `vercel dev`) and a local `.env` with the same variables listed above — the handlers are plain `(req, res)` functions and don't depend on any Vercel-specific APIs beyond that.
 
 ## Hosting
 
