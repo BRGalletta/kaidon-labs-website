@@ -40,6 +40,14 @@
   padding: 32px;
 }
 
+/* .audit-chat-panel sets its own `display: flex` below, which otherwise
+   beats the browser's default [hidden] { display: none } rule on
+   specificity — without this, toggling the `hidden` attribute via JS
+   silently does nothing and the chat panel stays visible forever. */
+.audit-panel[hidden] {
+  display: none;
+}
+
 .form-optional {
   color: var(--color-text-muted);
   font-weight: 400;
