@@ -203,7 +203,7 @@ Respond with ONLY valid JSON, no markdown code fences, matching exactly this sha
 export async function synthesizeInitiatives({ client, extracted }) {
   const response = await client.messages.create({
     model: MODEL,
-    max_tokens: 1024,
+    max_tokens: 2048, // was 1024 — that truncated mid-JSON in practice once evidence/notes got verbose
     system: SYNTHESIS_SYSTEM_PROMPT,
     messages: [
       {
@@ -224,6 +224,7 @@ export async function synthesizeInitiatives({ client, extracted }) {
   try {
     return JSON.parse(cleaned);
   } catch (err) {
-    throw new Error(`Synthesis response wasn't valid JSON: ${err.message}\nRaw: ${text}`);
+    const truncated = response.stop_reason === "max_tokens" ? " (response hit max_tokens and was cut off mid-JSON)" : "";
+    throw new Error(`Synthesis response wasn't valid JSON${truncated}: ${err.message}\nRaw: ${text}`);
   }
 }
