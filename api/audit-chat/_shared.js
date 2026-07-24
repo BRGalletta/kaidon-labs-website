@@ -8,7 +8,12 @@ import Anthropic from "@anthropic-ai/sdk";
 
 export const MODEL = "claude-sonnet-5";
 export const MAX_USER_TURNS = 8; // hard backstop even if the model never sets ready_for_synthesis
-export const MAX_TOOL_LOOP_ITERATIONS = 3; // guards against a runaway tool-call loop in one request
+// Kept small on purpose: each iteration is a sequential live Claude call within
+// one Vercel function invocation, and Vercel's per-request timeout (as low as
+// 10s on some plans) is easy to blow through with 3+ round trips as the
+// conversation's context grows. The system prompt now tells the model to always
+// reply in the same turn as any tool call, so this should rarely exceed 1.
+export const MAX_TOOL_LOOP_ITERATIONS = 2;
 
 const SUPABASE_URL = process.env.SUPABASE_URL;
 const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
@@ -71,6 +76,7 @@ Rules that matter:
 - Never state a specific price, cost range, or package name. If asked "how much would this cost," be honest: that's exactly what the full audit is for, and pricing depends on specifics you can't know yet from a short chat — Brian will go over that directly.
 - Never guarantee an outcome or timeline.
 - After every message the prospect sends, call the update_findings tool to record what you learned (merge with what's already known — you'll be shown the current state). It's fine to call it with no meaningful change if nothing new came up.
+- CRITICAL: whenever you call update_findings, ALWAYS also include your next chat reply as text in that exact same response — never call the tool alone and wait for another turn to reply. The prospect is waiting live; a tool call with no accompanying reply reads as the conversation freezing.
 - Once you have a real sense of the business, at least one concrete pain point, and either a tools/systems signal or a size/volume signal, set ready_for_synthesis to true in that same tool call and wrap the conversation up warmly (something like: thank them, tell them you're putting together a couple of thoughts on where AI could help). Don't drag the conversation out once you have enough to work with — 4-6 exchanges is usually plenty.
 - Keep every message short — a few sentences, chat-length, not an essay.`;
 
@@ -173,7 +179,14 @@ export async function runConversationTurn({ client, messages, extracted }) {
     }
   }
 
-  return { replyText: "", extracted: mergedExtracted, readyForSynthesis };
+  // Loop exhausted without the model ever giving us text (shouldn't happen
+  // given the system prompt, but a silent empty reply would look exactly
+  // like the chat freezing on the frontend — better to say something).
+  return {
+    replyText: "Thanks for sharing that — give me just a moment to gather my thoughts.",
+    extracted: mergedExtracted,
+    readyForSynthesis,
+  };
 }
 
 const SYNTHESIS_SYSTEM_PROMPT = `You are an expert AI consultant synthesizing the results of a short, self-serve intake chat into recommended initiatives. You'll be given structured findings extracted from the conversation. Produce two versions:
@@ -200,8 +213,16 @@ export async function synthesizeInitiatives({ client, extracted }) {
     ],
   });
   const text = response.content.filter((b) => b.type === "text").map((b) => b.text).join("\n").trim();
+  // Models don't always obey "no markdown fences" — strip them, and fall back
+  // to the first {...} block if there's stray prose around the JSON.
+  let cleaned = text.replace(/^```(?:json)?\s*/i, "").replace(/```\s*$/, "").trim();
+  const firstBrace = cleaned.indexOf("{");
+  const lastBrace = cleaned.lastIndexOf("}");
+  if (firstBrace > 0 && lastBrace > firstBrace) {
+    cleaned = cleaned.slice(firstBrace, lastBrace + 1);
+  }
   try {
-    return JSON.parse(text);
+    return JSON.parse(cleaned);
   } catch (err) {
     throw new Error(`Synthesis response wasn't valid JSON: ${err.message}\nRaw: ${text}`);
   }

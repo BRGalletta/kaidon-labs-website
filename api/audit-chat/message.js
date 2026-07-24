@@ -16,6 +16,12 @@ import {
 } from "./_shared.js";
 import { notifyBrianOfCompletedLead } from "./_notify.js";
 
+// The most latency-sensitive route: a conversation turn plus, on the final
+// turn, a synthesis call too — up to 3 sequential Claude calls in the worst
+// case. If your plan's max is lower than this, Vercel will say so at
+// deploy time — lower the number to match rather than removing it.
+export const maxDuration = 30;
+
 export default async function handler(req, res) {
   if (req.method !== "POST") {
     res.status(405).json({ error: "Method not allowed" });

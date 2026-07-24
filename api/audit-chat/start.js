@@ -6,6 +6,12 @@
 
 import { getAnthropicClient, supabaseFetch, buildMessages, runConversationTurn } from "./_shared.js";
 
+// Raise the function timeout above Vercel's short default — a single
+// request here can involve 1-2 sequential Claude calls. If your plan's
+// max is lower than this, Vercel will say so at deploy time — lower the
+// number to match rather than removing it.
+export const maxDuration = 30;
+
 const DAILY_SUBMISSION_CAP_PER_EMAIL = 3;
 
 export default async function handler(req, res) {
