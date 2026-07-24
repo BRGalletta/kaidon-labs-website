@@ -1,0 +1,31 @@
+{
+  "_guidelines": "Kaidon Labs blog content guardrails: (1) Write general AI-adoption and business-education content in Kaidon Labs' voice — professional but approachable, practical, results-driven, minimal jargon. (2) Do NOT fabricate client stories, case studies, testimonials, or named customer examples. (3) Do NOT invent statistics, survey numbers, or research findings presented as fact; if a number is needed, keep it qualitative or clearly framed as illustrative, not cited as real data. (4) Every post should end with a soft call-to-action pointing back to booking a meeting (https://calendly.com/brian-kaidonlabs/30min) or the site's contact section (/#contact) — never pushy, always optional next step. (5) Stay evergreen: avoid time-sensitive claims that will date quickly. (6) Topics are drawn from the pool below and tracked in \"used\" to avoid repeats; once every topic has been used, the pool may be recycled with fresh angles.",
+  "topics": [
+    "5 Signs Your Business Is Ready for an AI Chatbot",
+    "Build vs. Buy: Custom AI vs. Off-the-Shelf Tools",
+    "A Non-Technical Founder's Guide to LLMs",
+    "Data Readiness Checklist Before Adopting AI",
+    "5 AI Adoption Myths, Debunked",
+    "How to Choose the Right AI Consulting Partner",
+    "What Makes an AI Integration Actually Succeed (or Fail)",
+    "The Real Cost of Building a Custom AI Solution",
+    "AI Chatbots vs. Traditional Live Chat: What's the Difference",
+    "How to Spot an AI Project That's Doomed From the Start",
+    "A Practical Framework for Prioritizing AI Use Cases",
+    "What 'AI-Ready' Actually Means for a Small Business",
+    "Common Pitfalls When Connecting AI Tools to Your CRM",
+    "How to Write an Effective AI Project Brief",
+    "AI Consulting Red Flags: What to Watch For",
+    "Chatbots for Internal Teams vs. Customer-Facing Chatbots",
+    "How to Measure ROI on an AI Initiative",
+    "Should You Fine-Tune a Model or Use Retrieval Instead?",
+    "The Difference Between Automation and AI (and Why It Matters)",
+    "How to Prepare Your Team for an AI Rollout",
+    "Choosing the Right Scope for Your First AI Project",
+    "AI Governance Basics for Small and Mid-Size Businesses",
+    "How AI Integration Can Reduce Manual Data Entry",
+    "What to Ask a Vendor Before Buying an 'AI-Powered' Tool",
+    "Planning for AI Maintenance: What Happens After Launch"
+  ],
+  "used": []
+}
