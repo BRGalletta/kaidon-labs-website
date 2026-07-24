@@ -106,7 +106,7 @@ The net effect: a draft written today publishes automatically ~24 hours later, w
 
 ## Placeholders to replace before launch
 
-- **Formspree form ID** — `index.html`, contact form `action` attribute (`https://formspree.io/f/YOUR_FORM_ID`). Sign up at [formspree.io](https://formspree.io), create a form, and replace `YOUR_FORM_ID` with your real form ID. Marked with an HTML comment directly above the form in `index.html`.
+- ~~**Formspree form ID**~~ — done. `index.html` contact form now posts to `https://formspree.io/f/mjgnadvg`.
 - **Contact email** — `brian@kaidonlabs.com` appears in `index.html` (footer + contact section) and in every generated blog page footer (via `scripts/template.js`). Marked with HTML comments; confirm this is the correct inbox before launch.
 - **Social links** — the footer social icons (LinkedIn, X, GitHub) in `index.html` and `scripts/template.js` currently point to `href="#"`. Replace with real profile URLs before launch. Marked with an HTML comment above the icons.
 
