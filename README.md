@@ -112,4 +112,6 @@ The net effect: a draft written today publishes automatically ~24 hours later, w
 
 ## Hosting
 
-This site is intended to be hosted on **GitHub Pages, serving from the `main` branch**. The generated blog HTML (`blog/index.html`, `blog/<slug>/index.html`) is committed to the repository rather than built by CI — there is no GitHub Actions build step. Run `npm run build` locally (or as part of the daily automation described above) and commit the output before pushing.
+This site is hosted on **GitHub Pages, serving from the `main` branch** (https://brgalletta.github.io/kaidon-labs-website/). The generated blog HTML (`blog/index.html`, `blog/<slug>/index.html`) is committed to the repository rather than built by CI — there is no GitHub Actions build step. Run `npm run build` locally (or as part of the daily automation described above) and commit the output before pushing.
+
+It's also connected to **Vercel** for redundancy / an eventual custom domain. `vercel.json` pins `outputDirectory` to the repo root and `framework` to `null` since this isn't a recognized framework — without it, Vercel's zero-config detection assumes a `public/` folder that doesn't exist here and the deploy fails with "No Output Directory named public found." `buildCommand` re-runs `npm run build` on every deploy, which is harmless (idempotent) even though the output is already committed.
