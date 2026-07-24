@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A Non-Technical Founder's Guide to LLMs | Kaidon Labs Blog</title>
+  <meta name="description" content="What large language models actually are, in plain language — and what to keep in mind before making decisions about them for your business." />
+
+  <meta property="og:title" content="A Non-Technical Founder's Guide to LLMs | Kaidon Labs Blog" />
+  <meta property="og:description" content="What large language models actually are, in plain language — and what to keep in mind before making decisions about them for your business." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kaidon Labs" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314335c'/%3E%3Ccircle cx='20' cy='22' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='44' cy='20' r='5' fill='%23ffffff'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='20' cy='42' r='4' fill='%23ffffff'/%3E%3Cline x1='20' y1='22' x2='44' y2='20' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='22' x2='20' y2='42' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='42' x2='46' y2='44' stroke='%2316b8a6' stroke-width='2'/%3E%3Cline x1='44' y1='20' x2='46' y2='44' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Primary">
+      <div class="container">
+        <a href="../../index.html#top" class="brand" aria-label="Kaidon Labs home">
+          <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill="#14335c"/>
+    <circle cx="20" cy="22" r="6" fill="#16b8a6"/>
+    <circle cx="44" cy="20" r="5" fill="#ffffff"/>
+    <circle cx="46" cy="44" r="6" fill="#16b8a6"/>
+    <circle cx="20" cy="42" r="4" fill="#ffffff"/>
+    <line x1="20" y1="22" x2="44" y2="20" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="22" x2="20" y2="42" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="42" x2="46" y2="44" stroke="#16b8a6" stroke-width="2"/>
+    <line x1="44" y1="20" x2="46" y2="44" stroke="#ffffff" stroke-width="2"/>
+  </svg>
+          Kaidon Labs
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../../index.html#services">Services</a></li>
+          <li><a href="../../index.html#expertise">What We Do</a></li>
+          <li><a href="../../blog/">Blog</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li class="nav-cta">
+            <a class="btn btn-primary btn-sm" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <article class="post-article">
+      <a class="back-link" href="../">&larr; Back to Blog</a>
+      <p class="post-meta">July 24, 2026</p>
+      <h1>A Non-Technical Founder's Guide to LLMs</h1>
+      <div class="post-body">
+<p>&quot;LLM&quot; gets thrown around in almost every AI conversation now, often without anyone stopping to explain what it actually means. If you&#39;re a founder or operator trying to make real decisions — not write code — here&#39;s the plain-language version of what you actually need to know.</p>
+<h2>What an LLM actually is</h2>
+<p>A large language model is a system trained on enormous amounts of text to predict what word (or piece of a word) should come next, given everything that came before it. That&#39;s the whole core mechanism. Trained on enough text, that simple prediction task turns out to be powerful enough to write coherent paragraphs, answer questions, summarize documents, hold a conversation, and follow fairly complex instructions.</p>
+<p>It&#39;s not &quot;thinking&quot; in the way a person thinks, and it doesn&#39;t have memory or understanding the way we intuitively imagine. It&#39;s closer to an extremely sophisticated pattern-completion engine — one that&#39;s good enough at the pattern of human language and reasoning to be genuinely useful for real work.</p>
+<h2>What LLMs are actually good at</h2>
+<ul>
+<li><strong>Language tasks at scale.</strong> Drafting, summarizing, rewriting, and reformatting text quickly and consistently.</li>
+<li><strong>Answering questions against known information.</strong> When given the right source material (your documents, your policies, your product data), an LLM can answer questions about it accurately and in natural language.</li>
+<li><strong>Handling repetitive, well-defined requests.</strong> The more predictable and well-scoped the task, the more reliably an LLM performs it.</li>
+<li><strong>Working across unstructured input.</strong> Emails, transcripts, PDFs, chat logs — LLMs are good at pulling structure and meaning out of messy text that used to require a person to read it manually.</li>
+</ul>
+<h2>What LLMs are not good at — yet</h2>
+<ul>
+<li><strong>Being reliably factual without help.</strong> An LLM can state something confidently and incorrectly — this is usually called &quot;hallucination.&quot; The fix isn&#39;t hoping the model gets better; it&#39;s grounding the model in your actual data (a technique often called retrieval) rather than relying on what it happened to learn during training.</li>
+<li><strong>Complex, multi-step judgment calls with real stakes.</strong> LLMs are strong assistants for judgment-heavy work, not reliable replacements for it — especially anywhere a wrong call is costly.</li>
+<li><strong>Staying current on its own.</strong> A model has a training cutoff. Without being connected to live data, it doesn&#39;t know about anything after that point.</li>
+<li><strong>Doing the right thing without guardrails.</strong> Left unconstrained, a model will try to answer almost anything asked of it — including things it shouldn&#39;t. Good AI systems are designed with limits on what the model is allowed to do, not just what it&#39;s capable of.</li>
+</ul>
+<h2>Vocabulary worth actually knowing</h2>
+<p>You don&#39;t need to understand the math to make good decisions — but a few terms come up constantly and are worth having a real grip on:</p>
+<ul>
+<li><strong>Prompt</strong> — the instructions or question given to the model. Better prompts produce meaningfully better results; this is a real skill, not a formality.</li>
+<li><strong>Fine-tuning</strong> — additional training on your specific data to shape how a model behaves for your use case. Powerful, but usually more effort and cost than most businesses need to start.</li>
+<li><strong>Retrieval (or RAG)</strong> — giving the model access to your specific, current documents at the moment it answers, instead of relying only on what it learned during training. This is usually the more practical answer to &quot;make it know about our business.&quot;</li>
+<li><strong>Context window</strong> — how much information the model can consider at once. It matters when you&#39;re feeding it long documents or long conversation history.</li>
+<li><strong>Hallucination</strong> — when a model states something false with full confidence. Understanding this is more important than understanding how transformers work.</li>
+</ul>
+<h2>What actually matters for your decisions</h2>
+<p>As a founder, your job isn&#39;t to become an ML engineer. It&#39;s to ask good questions when someone proposes an AI project: What is this actually being asked to do? What happens when it&#39;s wrong? Where is its information coming from — the model&#39;s general training, or our real, current data? Who is responsible for checking its output before it reaches a customer?</p>
+<p>Those questions matter far more than any technical detail, and they&#39;re the difference between an AI project that quietly creates risk and one that reliably saves your team time.</p>
+<p>If you&#39;re trying to figure out where LLMs actually fit in your business — and where they don&#39;t — that&#39;s exactly the kind of conversation worth having before committing to a project. <a href="https://calendly.com/brian-kaidonlabs/30min">Book a free 30-minute call</a> with Kaidon Labs, or <a href="/#contact">reach out through our contact form</a>, and we&#39;ll walk through it in plain language, no jargon required.</p>
+
+      </div>
+
+      <div class="post-cta">
+        <h3>Curious how this applies to your business?</h3>
+        <p>Book a free 30-minute call with Kaidon Labs and we'll talk through what makes sense for your team.</p>
+        <a class="btn btn-primary" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill="#16b8a6"/>
+    <circle cx="20" cy="22" r="6" fill="#0f172a"/>
+    <circle cx="44" cy="20" r="5" fill="#ffffff"/>
+    <circle cx="46" cy="44" r="6" fill="#0f172a"/>
+    <circle cx="20" cy="42" r="4" fill="#ffffff"/>
+    <line x1="20" y1="22" x2="44" y2="20" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="22" x2="20" y2="42" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="42" x2="46" y2="44" stroke="#0f172a" stroke-width="2"/>
+    <line x1="44" y1="20" x2="46" y2="44" stroke="#ffffff" stroke-width="2"/>
+  </svg>
+            Kaidon Labs
+          </div>
+          <p>Practical AI, built around how your business actually works.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="../../index.html#services">Services</a></li>
+            <li><a href="../../index.html#expertise">What We Do</a></li>
+            <li><a href="../../blog/">Blog</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <!-- Placeholder contact email — confirm this is the real inbox to use before launch -->
+            <li><a href="mailto:brian@kaidonlabs.com">brian@kaidonlabs.com</a></li>
+            <li><a href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Follow</h5>
+          <!-- Social links are placeholders (href="#") — replace with real profile URLs before launch -->
+          <div class="footer-social">
+            <a href="#" aria-label="Kaidon Labs on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+            </a>
+            <a href="#" aria-label="Kaidon Labs on X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.7L4.4 22H1.3l8.1-9.3L1 2h7l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.3L17.7 20Z"/></svg>
+            </a>
+            <a href="#" aria-label="Kaidon Labs on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Kaidon Labs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>
