@@ -331,14 +331,63 @@
               <span class="form-error">Please enter a valid email address.</span>
             </div>
 
-            <div class="form-row">
-              <label for="company">Company <span>(optional)</span></label>
-              <input type="text" id="company" name="company" autocomplete="organization" />
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="company">Company <span>(optional)</span></label>
+                <input type="text" id="company" name="company" autocomplete="organization" />
+              </div>
+
+              <div class="form-row">
+                <label for="team_size">Team size <span>(optional)</span></label>
+                <select id="team_size" name="team_size">
+                  <option value="">Prefer not to say</option>
+                  <option value="1-10">1–10 people</option>
+                  <option value="11-50">11–50 people</option>
+                  <option value="51-200">51–200 people</option>
+                  <option value="200+">200+ people</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-grid-2">
+              <div class="form-row">
+                <label for="service_interest">What are you interested in? <span>(optional)</span></label>
+                <select id="service_interest" name="service_interest">
+                  <option value="">Not sure yet</option>
+                  <option value="Custom AI Solutions">Custom AI Solutions</option>
+                  <option value="AI Chatbots">AI Chatbots</option>
+                  <option value="AI Consulting">AI Consulting</option>
+                  <option value="AI Integration">AI Integration</option>
+                  <option value="Multiple / not sure yet">Multiple / not sure yet</option>
+                </select>
+              </div>
+
+              <div class="form-row">
+                <label for="timeline">Timeline <span>(optional)</span></label>
+                <select id="timeline" name="timeline">
+                  <option value="">Prefer not to say</option>
+                  <option value="ASAP">ASAP</option>
+                  <option value="1-3 months">1–3 months</option>
+                  <option value="3-6 months">3–6 months</option>
+                  <option value="Just exploring">Just exploring</option>
+                </select>
+              </div>
             </div>
 
             <div class="form-row">
-              <label for="message">Message <span class="required">*</span></label>
-              <textarea id="message" name="message" required></textarea>
+              <label for="ai_usage">Are you using any AI tools today? <span>(optional)</span></label>
+              <select id="ai_usage" name="ai_usage">
+                <option value="">Prefer not to say</option>
+                <option value="None yet">None yet — just starting to look</option>
+                <option value="A few off-the-shelf tools">A few off-the-shelf tools (ChatGPT, Copilot, etc.)</option>
+                <option value="Some custom automation">Some custom automation, but nothing cohesive</option>
+                <option value="Existing AI systems we want to improve">Existing AI systems we want to improve or replace</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <label for="message">What's the main challenge or opportunity you're hoping AI can help with? <span class="required">*</span></label>
+              <textarea id="message" name="message" required placeholder="e.g. Our support team is buried in repetitive tickets and we want to explore automating the first response..."></textarea>
               <span class="form-error">Please share a few details about your inquiry.</span>
             </div>
 
