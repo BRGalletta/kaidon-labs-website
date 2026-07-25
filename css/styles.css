@@ -531,40 +531,55 @@ button {
   margin-inline: auto;
 }
 
-.expertise .section-header h2,
-.expertise .section-header p {
+.expertise-header {
+  max-width: 56ch;
+}
+
+.expertise-header .eyebrow {
+  color: var(--color-accent);
+}
+
+.expertise-header h2 {
   color: var(--color-text-inverse);
+  margin: 10px 0 14px;
 }
 
-.expertise .section-header p {
+.expertise-header p {
   color: #cbd5e1;
+  margin-bottom: 0;
 }
 
-.expertise-grid {
+.expertise-list {
+  margin-top: 48px;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.expertise-row {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 32px;
-  margin-top: 40px;
+  gap: 6px;
+  padding: 28px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-.expertise-item h4 {
-  color: var(--color-text-inverse);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1.05rem;
-}
-
-.expertise-item h4 svg {
-  width: 20px;
-  height: 20px;
+.expertise-index {
+  font-family: var(--font-mono, ui-monospace, "SF Mono", Menlo, monospace);
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   color: var(--color-accent);
-  flex-shrink: 0;
 }
 
-.expertise-item p {
+.expertise-row-body h4 {
+  color: var(--color-text-inverse);
+  font-size: 1.15rem;
+  margin: 0 0 8px;
+}
+
+.expertise-row-body p {
   color: #cbd5e1;
-  font-size: 0.95rem;
+  font-size: 0.98rem;
+  max-width: 60ch;
   margin-bottom: 0;
 }
 
@@ -628,9 +643,7 @@ button {
 }
 
 .trust-line {
-  margin-top: 48px;
-  padding-top: 32px;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  margin-top: 40px;
   font-size: 1.05rem;
   font-weight: 600;
   text-align: center;
@@ -1133,8 +1146,14 @@ button {
     grid-template-columns: 1.05fr 0.95fr;
   }
 
-  .expertise-grid {
-    grid-template-columns: repeat(2, 1fr);
+  .expertise-row {
+    grid-template-columns: 120px 1fr;
+    gap: 24px;
+  }
+
+  .expertise-index {
+    font-size: 0.95rem;
+    padding-top: 3px;
   }
 
   .contact-grid {
@@ -1193,10 +1212,6 @@ button {
 
 @media (min-width: 1024px) {
   .services-grid {
-    grid-template-columns: repeat(4, 1fr);
-  }
-
-  .expertise-grid {
     grid-template-columns: repeat(4, 1fr);
   }
 
