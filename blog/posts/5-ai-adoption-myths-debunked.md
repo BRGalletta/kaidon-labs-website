@@ -1,10 +1,10 @@
 ---
-title: "5 AI Adoption Myths, Debunked"
-date: "2026-07-25T14:41:15.999Z"
-slug: "5-ai-adoption-myths-debunked"
-excerpt: "The gap between AI hype and AI skepticism is wide — here's what's actually true in the middle."
-status: pending
-publishAt: "2026-07-26T14:41:15.999Z"
+title: '5 AI Adoption Myths, Debunked'
+date: '2026-07-25T14:41:15.999Z'
+slug: 5-ai-adoption-myths-debunked
+excerpt: >-
+  The gap between AI hype and AI skepticism is wide — here's what's actually
+  true in the middle.
 ---
 
 AI adoption advice tends to arrive in two flavors: breathless hype or blanket skepticism. Neither is very useful when you're actually trying to decide what to do. Somewhere between "AI will replace your entire workforce by next quarter" and "it's all overhyped nonsense" is a much more practical reality — and a handful of myths keep getting in the way of seeing it clearly.
