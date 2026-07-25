@@ -65,15 +65,26 @@ export async function notifyBrianOfCompletedLead(lead) {
   `;
 
   try {
-    const result = await resend.emails.send({
+    const { data, error } = await resend.emails.send({
       from: "Kaidon Labs AI Audit <onboarding@resend.dev>",
       to: NOTIFY_EMAIL,
       subject: `New AI Audit chat: ${lead.name}${lead.company ? ` (${lead.company})` : ""}`,
       html,
     });
-    return { sent: true, result };
+
+    // The Resend SDK does NOT throw on API-level failures (unverified
+    // domain, restricted recipient, invalid from address, etc.) — those
+    // come back as `error` on an otherwise-resolved promise. Missing this
+    // check means a rejected send looks identical to a successful one.
+    if (error) {
+      console.error(`notify: Resend rejected the send: ${error.message || JSON.stringify(error)}`);
+      return { sent: false, reason: error.message || JSON.stringify(error) };
+    }
+
+    console.log(`notify: email sent, Resend id ${data?.id}`);
+    return { sent: true, id: data?.id };
   } catch (err) {
-    console.error(`notify: Resend send failed: ${err.message}`);
+    console.error(`notify: Resend send threw: ${err.message}`);
     return { sent: false, reason: err.message };
   }
 }
