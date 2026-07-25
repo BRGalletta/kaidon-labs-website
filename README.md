@@ -113,7 +113,7 @@ The net effect: a draft written today publishes automatically ~24 hours later, w
 ## Placeholders to replace before launch
 
 - ~~**Formspree form ID**~~ — done. `index.html` contact form now posts to `https://formspree.io/f/mjgnadvg`.
-- **Contact email** — `brian@kaidonlabs.com` appears in `index.html` (footer + contact section) and in every generated blog page footer (via `scripts/template.js`). Marked with HTML comments; confirm this is the correct inbox before launch.
+- ~~**Contact email**~~ — done. `brian@kaidonlabs.tech` is the confirmed inbox, used in `index.html` (footer + contact section), `ai-audit/index.html`, and every generated blog page footer (via `scripts/template.js`).
 - **Social links** — the footer social icons (LinkedIn, X, GitHub) in `index.html` and `scripts/template.js` currently point to `href="#"`. Replace with real profile URLs before launch. Marked with an HTML comment above the icons.
 
 ## AI Audit chat (`/ai-audit`)
@@ -125,8 +125,8 @@ A self-serve chat a prospect can run directly on the site: a lead-gate form (nam
 ### One-time setup before this works live
 
 1. **Supabase**: this uses its own dedicated Supabase project — separate from the one hosting the agency's `pipeline` table, so anonymous website leads never mix with vetted client data. Run `api/schema.sql` once in that project's SQL editor (Project → SQL Editor → New query).
-2. **Resend**: sign up at resend.com if you don't already have an account, and generate an API key. `_notify.js` sends from `notifications@kaidonlabs.com` by default, which requires the `kaidonlabs.com` domain to be verified in Resend (Domains → Add Domain → add the DNS records it gives you) — Resend's shared `onboarding@resend.dev` sandbox sender only ever delivers to your own Resend account email, regardless of what else is verified, so a real verified domain is required for this to reach anyone else.
-3. **Vercel environment variables** (Project Settings → Environment Variables): `ANTHROPIC_API_KEY`, `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (from the *dedicated AI-audit-leads* Supabase project's Project Settings → API — not the `agency-secrets.env` values, those are the agency pipeline's separate project), `RESEND_API_KEY`, and optionally `NOTIFY_EMAIL` (defaults to `brian@kaidonlabs.com`) and `NOTIFY_FROM_ADDRESS` (defaults to `Kaidon Labs AI Audit <notifications@kaidonlabs.com>` — override if `notifications@` isn't an address you want this sending from).
+2. **Resend**: sign up at resend.com if you don't already have an account, and generate an API key. `_notify.js` sends from `notifications@kaidonlabs.tech` by default, which requires the `kaidonlabs.tech` domain to be verified in Resend (Domains → Add Domain → add the DNS records it gives you) — Resend's shared `onboarding@resend.dev` sandbox sender only ever delivers to your own Resend account email, regardless of what else is verified, so a real verified domain is required for this to reach anyone else.
+3. **Vercel environment variables** (Project Settings → Environment Variables): `ANTHROPIC_API_KEY`, `SUPABASE_URL` and `SUPABASE_SERVICE_ROLE_KEY` (from the *dedicated AI-audit-leads* Supabase project's Project Settings → API — not the `agency-secrets.env` values, those are the agency pipeline's separate project), `RESEND_API_KEY`, and optionally `NOTIFY_EMAIL` (defaults to `brian@kaidonlabs.tech`) and `NOTIFY_FROM_ADDRESS` (defaults to `Kaidon Labs AI Audit <notifications@kaidonlabs.tech>` — override if `notifications@` isn't an address you want this sending from).
 4. Redeploy after setting the env vars so the serverless functions pick them up.
 
 ### Local testing

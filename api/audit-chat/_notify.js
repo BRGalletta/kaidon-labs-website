@@ -6,13 +6,13 @@
 import { Resend } from "resend";
 
 const RESEND_API_KEY = process.env.RESEND_API_KEY;
-const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "brian@kaidonlabs.com";
+const NOTIFY_EMAIL = process.env.NOTIFY_EMAIL || "brian@kaidonlabs.tech";
 // onboarding@resend.dev (Resend's shared sandbox sender) is ALWAYS
 // restricted to test-mode-only recipients, regardless of what other
 // domains are verified on the account — sending from a verified domain
 // you actually own is what lifts that restriction. Override via env var
-// if notifications@kaidonlabs.com isn't the address you want this to send from.
-const FROM_ADDRESS = process.env.NOTIFY_FROM_ADDRESS || "Kaidon Labs AI Audit <notifications@kaidonlabs.com>";
+// if notifications@kaidonlabs.tech isn't the address you want this to send from.
+const FROM_ADDRESS = process.env.NOTIFY_FROM_ADDRESS || "Kaidon Labs AI Audit <notifications@kaidonlabs.tech>";
 
 function escapeHtml(str) {
   return String(str ?? "").replace(/[&<>"']/g, (c) => ({
