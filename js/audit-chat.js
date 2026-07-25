@@ -42,7 +42,11 @@
   function addTypingIndicator() {
     var bubble = document.createElement("div");
     bubble.className = "chat-bubble typing";
-    bubble.textContent = "...";
+    for (var i = 0; i < 3; i++) {
+      var dot = document.createElement("span");
+      dot.className = "typing-dot";
+      bubble.appendChild(dot);
+    }
     chatMessages.appendChild(bubble);
     chatMessages.scrollTop = chatMessages.scrollHeight;
     return bubble;
