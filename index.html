@@ -79,47 +79,69 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true">
-          <!-- Chaos-to-clarity graphic: scattered inputs, an AI sparkle, organized results -->
-          <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg">
-            <!-- messy input cluster -->
-            <g>
-              <rect x="30" y="110" width="70" height="34" rx="8" fill="#e2e8f0" transform="rotate(-14 65 127)"/>
-              <rect x="20" y="170" width="80" height="34" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(9 60 187)"/>
-              <rect x="55" y="225" width="70" height="34" rx="8" fill="#e2e8f0" transform="rotate(17 90 242)"/>
-              <rect x="15" y="270" width="76" height="34" rx="8" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1.5" transform="rotate(-11 53 287)"/>
+          <!-- Ambient particle field: soft, slow-moving particles suggesting intelligence and motion -->
+          <svg viewBox="0 0 480 420" xmlns="http://www.w3.org/2000/svg" class="particle-field">
+            <defs>
+              <radialGradient id="ambientGlow" cx="50%" cy="50%" r="50%">
+                <stop offset="0%" stop-color="#16b8a6" stop-opacity="0.16"/>
+                <stop offset="60%" stop-color="#16b8a6" stop-opacity="0.06"/>
+                <stop offset="100%" stop-color="#16b8a6" stop-opacity="0"/>
+              </radialGradient>
+              <filter id="softBlurLg" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="18"/>
+              </filter>
+              <filter id="softBlurMd" x="-60%" y="-60%" width="220%" height="220%">
+                <feGaussianBlur stdDeviation="5"/>
+              </filter>
+            </defs>
+
+            <!-- ambient glow, perfectly circular, very soft -->
+            <circle cx="260" cy="195" r="150" fill="url(#ambientGlow)" filter="url(#softBlurLg)"/>
+
+            <!-- back layer: large, dim, blurred, slow drift -->
+            <g filter="url(#softBlurMd)">
+              <circle class="pf pf-back" cx="120" cy="90" r="22" fill="#94a3b8" opacity="0.16" style="animation-duration:19s; animation-delay:-2s;"/>
+              <circle class="pf pf-back" cx="350" cy="60" r="18" fill="#16b8a6" opacity="0.14" style="animation-duration:17s; animation-delay:-6s;"/>
+              <circle class="pf pf-back" cx="390" cy="285" r="26" fill="#14335c" opacity="0.10" style="animation-duration:22s; animation-delay:-9s;"/>
+              <circle class="pf pf-back" cx="85" cy="305" r="20" fill="#16b8a6" opacity="0.13" style="animation-duration:20s; animation-delay:-4s;"/>
+              <circle class="pf pf-back" cx="250" cy="345" r="16" fill="#94a3b8" opacity="0.15" style="animation-duration:16s; animation-delay:-11s;"/>
+              <circle class="pf pf-back" cx="425" cy="155" r="14" fill="#16b8a6" opacity="0.14" style="animation-duration:18s; animation-delay:-7s;"/>
             </g>
-            <g stroke="#94a3b8" stroke-width="1.5" stroke-linecap="round" fill="none" opacity="0.7">
-              <path d="M75 145 Q100 165 60 190"/>
-              <path d="M90 205 Q60 225 95 245"/>
-              <path d="M70 260 Q110 270 85 290"/>
+
+            <!-- mid layer: medium, softly defined -->
+            <g>
+              <circle class="pf pf-mid" cx="200" cy="140" r="9" fill="#16b8a6" opacity="0.5" style="animation-duration:12s; animation-delay:-1s;"/>
+              <circle class="pf pf-mid" cx="262" cy="108" r="6" fill="#14335c" opacity="0.32" style="animation-duration:10s; animation-delay:-5s;"/>
+              <circle class="pf pf-mid" cx="312" cy="172" r="10" fill="#16b8a6" opacity="0.42" style="animation-duration:13s; animation-delay:-8s;"/>
+              <circle class="pf pf-mid" cx="150" cy="202" r="7" fill="#94a3b8" opacity="0.38" style="animation-duration:11s; animation-delay:-3s;"/>
+              <circle class="pf pf-mid" cx="342" cy="232" r="8" fill="#14335c" opacity="0.28" style="animation-duration:14s; animation-delay:-10s;"/>
+              <circle class="pf pf-mid" cx="222" cy="262" r="6" fill="#16b8a6" opacity="0.52" style="animation-duration:9s; animation-delay:-2s;"/>
+              <circle class="pf pf-mid" cx="382" cy="112" r="5" fill="#94a3b8" opacity="0.32" style="animation-duration:12.5s; animation-delay:-6s;"/>
+              <circle class="pf pf-mid" cx="112" cy="162" r="6" fill="#16b8a6" opacity="0.38" style="animation-duration:10.5s; animation-delay:-4s;"/>
+              <circle class="pf pf-mid" cx="292" cy="292" r="7" fill="#14335c" opacity="0.26" style="animation-duration:13.5s; animation-delay:-9s;"/>
+              <circle class="pf pf-mid" cx="172" cy="100" r="5" fill="#94a3b8" opacity="0.28" style="animation-duration:11.5s; animation-delay:-7s;"/>
+              <circle class="pf pf-mid" cx="402" cy="202" r="6" fill="#16b8a6" opacity="0.38" style="animation-duration:9.5s; animation-delay:-1s;"/>
+              <circle class="pf pf-mid" cx="240" cy="190" r="8" fill="#16b8a6" opacity="0.58" style="animation-duration:10s; animation-delay:-5s;"/>
+              <circle class="pf pf-mid" cx="132" cy="252" r="5" fill="#14335c" opacity="0.26" style="animation-duration:12s; animation-delay:-8s;"/>
+              <circle class="pf pf-mid" cx="362" cy="332" r="6" fill="#16b8a6" opacity="0.32" style="animation-duration:13s; animation-delay:-3s;"/>
             </g>
 
-            <!-- flow toward the sparkle -->
-            <line x1="128" y1="210" x2="182" y2="210" stroke="#94a3b8" stroke-width="2" stroke-linecap="round" stroke-dasharray="2 8" opacity="0.6"/>
-
-            <!-- AI sparkle -->
-            <circle cx="240" cy="210" r="54" fill="none" stroke="#16b8a6" stroke-width="1.5" opacity="0.35"/>
-            <path d="M240 168 L248 200 L280 210 L248 220 L240 252 L232 220 L200 210 L232 200 Z" fill="#16b8a6"/>
-
-            <!-- organized output cards -->
-            <g>
-              <rect x="300" y="128" width="150" height="48" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
-              <circle cx="322" cy="152" r="10" fill="#16b8a6"/>
-              <path d="M317 152 l3.5 3.5 7 -7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="342" y="146" width="90" height="7" rx="3.5" fill="#94a3b8"/>
-              <rect x="342" y="158" width="60" height="6" rx="3" fill="#cbd5e1"/>
-
-              <rect x="300" y="188" width="150" height="48" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
-              <circle cx="322" cy="212" r="10" fill="#16b8a6"/>
-              <path d="M317 212 l3.5 3.5 7 -7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="342" y="206" width="90" height="7" rx="3.5" fill="#94a3b8"/>
-              <rect x="342" y="218" width="70" height="6" rx="3" fill="#cbd5e1"/>
-
-              <rect x="300" y="248" width="150" height="48" rx="12" fill="#ffffff" stroke="#e2e8f0" stroke-width="2"/>
-              <circle cx="322" cy="272" r="10" fill="#16b8a6"/>
-              <path d="M317 272 l3.5 3.5 7 -7" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
-              <rect x="342" y="266" width="90" height="7" rx="3.5" fill="#94a3b8"/>
-              <rect x="342" y="278" width="50" height="6" rx="3" fill="#cbd5e1"/>
+            <!-- front layer: small, crisp, bright — the "signal" points -->
+            <g class="pf-front-group">
+              <circle class="pf pf-front" cx="255" cy="176" r="3" fill="#16b8a6" style="animation-duration:7s; animation-delay:-1s;"/>
+              <circle class="pf pf-front" cx="271" cy="201" r="2.5" fill="#ffffff" stroke="#14335c" stroke-width="1" style="animation-duration:8s; animation-delay:-3s;"/>
+              <circle class="pf pf-front" cx="231" cy="156" r="2" fill="#14335c" style="animation-duration:6.5s; animation-delay:-5s;"/>
+              <circle class="pf pf-front" cx="301" cy="191" r="3" fill="#16b8a6" style="animation-duration:7.5s; animation-delay:-2s;"/>
+              <circle class="pf pf-front" cx="211" cy="211" r="2" fill="#ffffff" stroke="#16b8a6" stroke-width="1" style="animation-duration:8.5s; animation-delay:-6s;"/>
+              <circle class="pf pf-front" cx="321" cy="141" r="2.5" fill="#14335c" style="animation-duration:6.8s; animation-delay:-4s;"/>
+              <circle class="pf pf-front" cx="181" cy="171" r="2" fill="#16b8a6" style="animation-duration:7.2s; animation-delay:-7s;"/>
+              <circle class="pf pf-front" cx="291" cy="241" r="2.5" fill="#ffffff" stroke="#14335c" stroke-width="1" style="animation-duration:9s; animation-delay:-1.5s;"/>
+              <circle class="pf pf-front" cx="251" cy="231" r="2" fill="#14335c" style="animation-duration:6.6s; animation-delay:-3.5s;"/>
+              <circle class="pf pf-front" cx="331" cy="271" r="2" fill="#16b8a6" style="animation-duration:7.8s; animation-delay:-5.5s;"/>
+              <circle class="pf pf-front" cx="201" cy="131" r="2" fill="#ffffff" stroke="#16b8a6" stroke-width="1" style="animation-duration:8.2s; animation-delay:-2.5s;"/>
+              <circle class="pf pf-front" cx="351" cy="201" r="2.5" fill="#16b8a6" style="animation-duration:7s; animation-delay:-6.5s;"/>
+              <circle class="pf pf-front" cx="161" cy="221" r="2" fill="#14335c" style="animation-duration:6.9s; animation-delay:-4.5s;"/>
+              <circle class="pf pf-front" cx="281" cy="131" r="2" fill="#16b8a6" style="animation-duration:8.8s; animation-delay:-0.5s;"/>
             </g>
           </svg>
         </div>

@@ -390,6 +390,53 @@ button {
   max-width: 480px;
 }
 
+/* Ambient particle field — soft, slow, non-literal motion */
+.pf-back {
+  animation-name: pf-drift-lg;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.pf-mid {
+  animation-name: pf-drift-md;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+.pf-front {
+  animation-name: pf-drift-sm, pf-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pf-drift-lg {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(10px, -12px); }
+}
+
+@keyframes pf-drift-md {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(-7px, 8px); }
+}
+
+@keyframes pf-drift-sm {
+  0%, 100% { transform: translate(0, 0); }
+  50% { transform: translate(4px, -5px); }
+}
+
+@keyframes pf-twinkle {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.55; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pf-back,
+  .pf-mid,
+  .pf-front {
+    animation: none;
+  }
+}
+
 /* ---------- Logo strip / stats ---------- */
 .stats-strip {
   border-top: 1px solid var(--color-border);
