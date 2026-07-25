@@ -137,7 +137,10 @@
         .then(function (data) {
           typingBubble.remove();
           if (data.done) {
-            showResult(data.initiatives);
+            addBubble("assistant", data.message);
+            setTimeout(function () {
+              showResult(data.initiatives);
+            }, 1200);
           } else {
             addBubble("assistant", data.message);
           }

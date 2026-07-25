@@ -44,7 +44,12 @@ export default async function handler(req, res) {
     // Idempotent: if this session already finished (e.g. a retried request),
     // just hand back the stored result instead of re-running synthesis.
     if (lead.status === "completed") {
-      res.status(200).json({ done: true, initiatives: lead.initiatives_prospect || [] });
+      const lastAssistantTurn = [...(lead.conversation || [])].reverse().find((t) => t.role === "assistant");
+      res.status(200).json({
+        done: true,
+        message: lastAssistantTurn?.message || "Here's what I found:",
+        initiatives: lead.initiatives_prospect || [],
+      });
       return;
     }
 
@@ -105,7 +110,8 @@ export default async function handler(req, res) {
     // prospect sees. notifyBrianOfCompletedLead already swallows its own errors.
     await notifyBrianOfCompletedLead(updatedLead);
 
-    res.status(200).json({ done: true, initiatives: synthesis.prospect });
+    const wrapUpMessage = replyText || "Thanks for sharing all that — here's what I found:";
+    res.status(200).json({ done: true, message: wrapUpMessage, initiatives: synthesis.prospect });
   } catch (err) {
     console.error(`audit-chat/message: ${err.message}`);
     res.status(500).json({ error: "Something went wrong continuing the chat. Please try again in a moment." });
