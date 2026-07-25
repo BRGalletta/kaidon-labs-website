@@ -59,6 +59,7 @@ function header(depth) {
         </button>
 
         <ul class="nav-links" id="nav-links">
+          <li><a href="${root}index.html#ai-audit">Free AI Audit</a></li>
           <li><a href="${root}index.html#services">Services</a></li>
           <li><a href="${root}index.html#expertise">What We Do</a></li>
           <li><a href="${root}blog/">Blog</a></li>
@@ -88,6 +89,7 @@ function footer(depth) {
         <div class="footer-col">
           <h5>Navigate</h5>
           <ul>
+            <li><a href="${root}index.html#ai-audit">Free AI Audit</a></li>
             <li><a href="${root}index.html#services">Services</a></li>
             <li><a href="${root}index.html#expertise">What We Do</a></li>
             <li><a href="${root}blog/">Blog</a></li>

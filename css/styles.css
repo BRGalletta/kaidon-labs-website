@@ -521,6 +521,65 @@ button {
   margin-bottom: 0;
 }
 
+/* ---------- AI Audit Promo ---------- */
+.ai-audit-promo {
+  background: var(--color-accent);
+  border-radius: var(--radius-lg);
+  margin: 8px 24px 48px;
+  padding: 56px 40px;
+}
+
+.ai-audit-promo-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.ai-audit-promo .eyebrow {
+  color: #06231f;
+  opacity: 0.8;
+}
+
+.ai-audit-promo h2 {
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  margin: 0 0 14px;
+  color: #06231f;
+}
+
+.ai-audit-promo p {
+  font-size: 1.05rem;
+  margin-bottom: 28px;
+  max-width: 52ch;
+  color: #0f3b34;
+}
+
+.ai-audit-promo .btn-primary {
+  background: var(--color-primary);
+  color: #ffffff;
+}
+
+.ai-audit-promo .btn-primary:hover {
+  background: var(--color-primary-dark);
+}
+
+.ai-audit-promo-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ai-audit-promo-visual svg {
+  width: 100%;
+  max-width: 240px;
+}
+
+@media (min-width: 768px) {
+  .ai-audit-promo-container {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
 .trust-line {
   margin-top: 48px;
   padding-top: 32px;
