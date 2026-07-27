@@ -1,10 +1,10 @@
 ---
-title: "What Makes an AI Integration Actually Succeed (or Fail)"
-date: "2026-07-26T10:05:03.515Z"
-slug: "what-makes-an-ai-integration-actually-succeed-or-fail"
-excerpt: "The pattern behind AI integrations that work has less to do with the model and more to do with scope, data, and ownership."
-status: pending
-publishAt: "2026-07-27T10:05:03.515Z"
+title: What Makes an AI Integration Actually Succeed (or Fail)
+date: '2026-07-26T10:05:03.515Z'
+slug: what-makes-an-ai-integration-actually-succeed-or-fail
+excerpt: >-
+  The pattern behind AI integrations that work has less to do with the model and
+  more to do with scope, data, and ownership.
 ---
 
 Every business that adopts AI eventually hears about the failures — the projects that stalled, went over budget, or shipped something nobody actually uses. Those stories tend to get chalked up to "the technology wasn't ready" or "the vendor overpromised." Sometimes that's true. More often, the real story is less dramatic: a handful of predictable, avoidable decisions made early on quietly determined whether the integration would work.

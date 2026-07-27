@@ -1,10 +1,8 @@
 ---
-title: "How to Choose the Right AI Consulting Partner"
-date: "2026-07-25T14:48:07.451Z"
-slug: "how-to-choose-the-right-ai-consulting-partner"
-excerpt: "A practical checklist for evaluating AI consultants before you sign anything."
-status: pending
-publishAt: "2026-07-26T14:48:07.451Z"
+title: How to Choose the Right AI Consulting Partner
+date: '2026-07-25T14:48:07.451Z'
+slug: how-to-choose-the-right-ai-consulting-partner
+excerpt: A practical checklist for evaluating AI consultants before you sign anything.
 ---
 
 Every business eventually reaches the same fork in the road: you know AI could help somewhere in your operation, but you don't have the in-house expertise to build it yourself. That's when "hire a consultant" starts sounding like the obvious next step. It can be — but the AI consulting space is crowded, uneven in quality, and full of vendors who are better at selling than delivering. Picking the right partner matters more than picking the right tool, because a good partner will steer you away from the wrong tool anyway.
