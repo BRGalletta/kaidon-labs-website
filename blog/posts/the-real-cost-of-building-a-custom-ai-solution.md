@@ -1,10 +1,10 @@
 ---
-title: "The Real Cost of Building a Custom AI Solution"
-date: "2026-07-27T10:11:45.894Z"
-slug: "the-real-cost-of-building-a-custom-ai-solution"
-excerpt: "The build itself is only one of five cost layers in a custom AI project — here's what the others are and why skipping them is expensive."
-status: pending
-publishAt: "2026-07-28T10:11:45.894Z"
+title: The Real Cost of Building a Custom AI Solution
+date: '2026-07-27T10:11:45.894Z'
+slug: the-real-cost-of-building-a-custom-ai-solution
+excerpt: >-
+  The build itself is only one of five cost layers in a custom AI project —
+  here's what the others are and why skipping them is expensive.
 ---
 
 When business leaders start pricing out a custom AI solution, the first number they usually ask about is the wrong one. "What will it cost to build?" feels like the natural question, but it only covers a fraction of what you're actually signing up for. The real cost of a custom AI project is made up of several layers, and skipping past any of them is how budgets — and timelines — blow up.
