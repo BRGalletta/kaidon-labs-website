@@ -13,12 +13,20 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 import matter from "gray-matter";
 import { marked } from "marked";
-import { renderPage } from "./template.js";
+import { renderPage, SITE_URL } from "./template.js";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, "..");
 const POSTS_DIR = path.join(ROOT, "blog", "posts");
 const BLOG_DIR = path.join(ROOT, "blog");
+
+// Static (hand-authored) pages included in the sitemap alongside the
+// generated blog pages. lastmod is read from the file's mtime so it stays
+// roughly accurate without needing to hand-maintain a date.
+const STATIC_PAGES = [
+  { urlPath: "/", file: path.join(ROOT, "index.html") },
+  { urlPath: "/ai-audit/", file: path.join(ROOT, "ai-audit", "index.html") },
+];
 
 function formatDate(isoString) {
   const d = new Date(isoString);
@@ -83,11 +91,41 @@ ${post.html}
       </div>
     </article>`;
 
+  const canonicalPath = `/blog/${post.slug}/`;
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const isoDate = new Date(post.date).toISOString();
+
+  const schema = [
+    {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.title,
+      description: post.excerpt || post.title,
+      datePublished: isoDate,
+      dateModified: isoDate,
+      url: canonicalUrl,
+      mainEntityOfPage: { "@type": "WebPage", "@id": canonicalUrl },
+      author: { "@type": "Organization", name: "Kaidon Labs", url: SITE_URL },
+      publisher: { "@type": "Organization", name: "Kaidon Labs", url: SITE_URL },
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Kaidon Labs", item: SITE_URL + "/" },
+        { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog/` },
+        { "@type": "ListItem", position: 3, name: post.title, item: canonicalUrl },
+      ],
+    },
+  ];
+
   const html = renderPage({
     depth: 2,
     title: `${post.title} | Kaidon Labs Blog`,
     description: post.excerpt || post.title,
-    bodyHtml
+    bodyHtml,
+    canonicalPath,
+    schema
   });
 
   fs.writeFileSync(path.join(outDir, "index.html"), html, "utf8");
@@ -123,12 +161,23 @@ ${posts.length ? cards : emptyState}
       </div>
     </section>`;
 
+  const schema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Kaidon Labs", item: SITE_URL + "/" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: `${SITE_URL}/blog/` },
+    ],
+  };
+
   const html = renderPage({
     depth: 1,
     title: "Blog | Kaidon Labs",
     description:
       "Practical AI insights for growing businesses — chatbots, integration, consulting, and strategy from Kaidon Labs.",
-    bodyHtml
+    bodyHtml,
+    canonicalPath: "/blog/",
+    schema
   });
 
   fs.mkdirSync(BLOG_DIR, { recursive: true });
@@ -136,10 +185,49 @@ ${posts.length ? cards : emptyState}
   console.log(`Wrote blog/index.html (${posts.length} post${posts.length === 1 ? "" : "s"})`);
 }
 
+function writeSitemap(posts) {
+  const toDateStamp = (d) => new Date(d).toISOString().slice(0, 10);
+
+  const staticEntries = STATIC_PAGES.map(({ urlPath, file }) => {
+    const lastmod = fs.existsSync(file) ? toDateStamp(fs.statSync(file).mtime) : undefined;
+    return { urlPath, lastmod };
+  });
+
+  const blogIndexEntry = {
+    urlPath: "/blog/",
+    lastmod: posts.length ? toDateStamp(posts[0].date) : undefined, // posts are sorted newest-first
+  };
+
+  const postEntries = posts.map((post) => ({
+    urlPath: `/blog/${post.slug}/`,
+    lastmod: toDateStamp(post.date),
+  }));
+
+  const allEntries = [...staticEntries, blogIndexEntry, ...postEntries];
+
+  const urlXml = allEntries
+    .map(
+      ({ urlPath, lastmod }) => `  <url>
+    <loc>${SITE_URL}${urlPath}</loc>${lastmod ? `\n    <lastmod>${lastmod}</lastmod>` : ""}
+  </url>`
+    )
+    .join("\n");
+
+  const xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${urlXml}
+</urlset>
+`;
+
+  fs.writeFileSync(path.join(ROOT, "sitemap.xml"), xml, "utf8");
+  console.log(`Wrote sitemap.xml (${allEntries.length} URLs)`);
+}
+
 function build() {
   const posts = readPosts();
   posts.forEach(writePostPage);
   writeBlogIndex(posts);
+  writeSitemap(posts);
   console.log("Build complete.");
 }
 

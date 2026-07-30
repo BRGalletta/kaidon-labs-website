@@ -9,6 +9,8 @@
 //   1 = blog/index.html
 //   2 = blog/<slug>/index.html
 
+export const SITE_URL = "https://kaidonlabs.tech";
+
 const FAVICON =
   "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314335c'/%3E%3Ccircle cx='20' cy='22' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='44' cy='20' r='5' fill='%23ffffff'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='20' cy='42' r='4' fill='%23ffffff'/%3E%3Cline x1='20' y1='22' x2='44' y2='20' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='22' x2='20' y2='42' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='42' x2='46' y2='44' stroke='%2316b8a6' stroke-width='2'/%3E%3Cline x1='44' y1='20' x2='46' y2='44' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E";
 
@@ -136,9 +138,17 @@ function footer(depth) {
  * @param {string} opts.title - document <title>
  * @param {string} opts.description - meta description / og:description
  * @param {string} opts.bodyHtml - inner HTML for <main>
+ * @param {string} opts.canonicalPath - site-root-relative path for canonical/og:url, e.g. "/blog/" or "/blog/my-post/"
+ * @param {object|object[]} [opts.schema] - JSON-LD object (or array of objects), each rendered as its own <script type="application/ld+json"> block
  */
-export function renderPage({ depth, title, description, bodyHtml }) {
+export function renderPage({ depth, title, description, bodyHtml, canonicalPath, schema }) {
   const root = rootPrefix(depth);
+  const canonicalUrl = `${SITE_URL}${canonicalPath}`;
+  const schemaBlocks = schema
+    ? (Array.isArray(schema) ? schema : [schema])
+        .map((obj) => `  <script type="application/ld+json">\n${JSON.stringify(obj, null, 2)}\n  </script>`)
+        .join("\n")
+    : "";
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -146,11 +156,19 @@ export function renderPage({ depth, title, description, bodyHtml }) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>${title}</title>
   <meta name="description" content="${description}" />
+  <link rel="canonical" href="${canonicalUrl}" />
 
   <meta property="og:title" content="${title}" />
   <meta property="og:description" content="${description}" />
   <meta property="og:type" content="article" />
   <meta property="og:site_name" content="Kaidon Labs" />
+  <meta property="og:url" content="${canonicalUrl}" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="${title}" />
+  <meta name="twitter:description" content="${description}" />
+
+${schemaBlocks}
 
   <link rel="icon" type="image/svg+xml" href="${FAVICON}" />
 
