@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Free AI Audit Chat | Kaidon Labs</title>
-  <meta name="description" content="Chat with Kaidon Labs' AI intake assistant for a few minutes and get a couple of concrete ideas for where AI could help your business — no sales call required to start." />
+  <title>Free 5-Minute AI Audit Chat | Kaidon Labs</title>
+  <meta name="description" content="Chat with Kaidon Labs' AI intake assistant for about 5 minutes and walk away with 2-3 concrete, specific-to-you ideas for where AI could help your business — free, no sales pitch, no obligation." />
 
-  <meta property="og:title" content="Free AI Audit Chat | Kaidon Labs" />
-  <meta property="og:description" content="A few minutes of conversation, a couple of concrete AI opportunities for your business." />
+  <meta property="og:title" content="Free 5-Minute AI Audit Chat | Kaidon Labs" />
+  <meta property="og:description" content="A real conversation, not a quiz. Get 2-3 concrete AI opportunities for your business — free, no sales pitch." />
   <meta property="og:type" content="website" />
   <meta property="og:site_name" content="Kaidon Labs" />
 
@@ -59,57 +59,191 @@
 
   <main id="top">
     <section class="audit-hero">
-      <div class="container">
-        <h1>Where could AI actually help your business?</h1>
-        <p class="tagline">Chat with our AI intake assistant for a few minutes. No sales pitch — just a real conversation about how things work today, and a couple of concrete ideas at the end.</p>
+      <div class="container audit-hero-grid">
+
+        <div class="audit-hero-content">
+          <span class="eyebrow">Free AI Audit &middot; ~5 Minutes</span>
+          <h1>Where could AI actually help your business?</h1>
+          <p class="tagline">Skip the sales call. Chat with our AI intake assistant, and walk away with 2-3 concrete ideas — grounded in your business, not generic AI hype. Free. No pitch. No obligation.</p>
+
+          <ul class="audit-trust-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><strong>A real conversation, not a quiz.</strong> It asks follow-ups based on what you actually say — one question at a time.</div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><strong>Specific to you.</strong> The ideas you get back are grounded in what you tell it, not a generic "10 ways to use AI" list.</div>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>
+              <div><strong>Zero pricing pressure.</strong> No dollar figures, no forced upsell mid-chat. Book time with us only if you want to.</div>
+            </li>
+          </ul>
+
+          <p class="audit-founder-note">Reviewed personally by Brian Galletta, Kaidon Labs' founder — every conversation lands in his inbox, so nothing gets lost if you follow up.</p>
+        </div>
+
+        <div class="audit-hero-widget" id="start">
+
+          <!-- ============ LEAD-GATE FORM ============ -->
+          <div class="audit-panel" id="gate-panel">
+            <div class="audit-panel-header">
+              <h2>Start your free audit</h2>
+              <p>Just your name and email to begin — the conversation starts instantly.</p>
+            </div>
+            <form id="gate-form" novalidate>
+              <div class="form-row">
+                <label for="gate-name">Your name <span class="required">*</span></label>
+                <input type="text" id="gate-name" name="name" required />
+                <span class="form-error">Please enter your name.</span>
+              </div>
+              <div class="form-row">
+                <label for="gate-email">Email <span class="required">*</span></label>
+                <input type="email" id="gate-email" name="email" required />
+                <span class="form-error">Please enter a valid email.</span>
+              </div>
+              <div class="form-row">
+                <label for="gate-company">Company <span class="form-optional">(optional)</span></label>
+                <input type="text" id="gate-company" name="company" />
+              </div>
+              <button type="submit" class="btn btn-primary btn-block" id="gate-submit">Start the Conversation</button>
+              <div class="form-status" id="gate-status" role="status" aria-live="polite"></div>
+              <p class="privacy-note">By starting this chat, you consent to Kaidon Labs storing your conversation and using it solely to follow up about your inquiry.</p>
+            </form>
+          </div>
+
+          <!-- ============ CHAT VIEW ============ -->
+          <div class="audit-panel audit-chat-panel" id="chat-panel" hidden>
+            <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+            <form id="chat-form" class="chat-input-row">
+              <input type="text" id="chat-input" placeholder="Type your reply..." autocomplete="off" />
+              <button type="submit" class="btn btn-primary" id="chat-send">Send</button>
+            </form>
+          </div>
+
+          <!-- ============ RESULT VIEW ============ -->
+          <div class="audit-panel audit-result-panel" id="result-panel" hidden>
+            <h2>A couple of places we think AI could help</h2>
+            <div class="result-initiatives" id="result-initiatives"></div>
+            <div class="result-cta">
+              <p>Every business is different — that's exactly what a full AI audit is for. Ready to go deeper?</p>
+              <a class="btn btn-primary" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
 
-    <section class="audit-chat-section">
-      <div class="container audit-chat-container">
-
-        <!-- ============ LEAD-GATE FORM ============ -->
-        <div class="audit-panel" id="gate-panel">
-          <form id="gate-form" novalidate>
-            <div class="form-row">
-              <label for="gate-name">Your name <span class="required">*</span></label>
-              <input type="text" id="gate-name" name="name" required />
-              <span class="form-error">Please enter your name.</span>
-            </div>
-            <div class="form-row">
-              <label for="gate-email">Email <span class="required">*</span></label>
-              <input type="email" id="gate-email" name="email" required />
-              <span class="form-error">Please enter a valid email.</span>
-            </div>
-            <div class="form-row">
-              <label for="gate-company">Company <span class="form-optional">(optional)</span></label>
-              <input type="text" id="gate-company" name="company" />
-            </div>
-            <button type="submit" class="btn btn-primary btn-block" id="gate-submit">Start the Conversation</button>
-            <div class="form-status" id="gate-status" role="status" aria-live="polite"></div>
-            <p class="privacy-note">By starting this chat, you consent to Kaidon Labs storing your conversation and using it solely to follow up about your inquiry.</p>
-          </form>
+    <!-- ============ HOW IT WORKS ============ -->
+    <section class="section" id="how-it-works">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">How It Works</span>
+          <h2>Three steps. About five minutes.</h2>
+          <p>No calendar invite, no waiting for a callback — you get real signal the moment you're done typing.</p>
         </div>
 
-        <!-- ============ CHAT VIEW ============ -->
-        <div class="audit-panel audit-chat-panel" id="chat-panel" hidden>
-          <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
-          <form id="chat-form" class="chat-input-row">
-            <input type="text" id="chat-input" placeholder="Type your reply..." autocomplete="off" />
-            <button type="submit" class="btn btn-primary" id="chat-send">Send</button>
-          </form>
-        </div>
-
-        <!-- ============ RESULT VIEW ============ -->
-        <div class="audit-panel audit-result-panel" id="result-panel" hidden>
-          <h2>A couple of places we think AI could help</h2>
-          <div class="result-initiatives" id="result-initiatives"></div>
-          <div class="result-cta">
-            <p>Every business is different — that's exactly what a full AI audit is for. Ready to go deeper?</p>
-            <a class="btn btn-primary" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+        <div class="audit-steps">
+          <div class="audit-step">
+            <div class="audit-step-number">1</div>
+            <h3>Tell us who you are</h3>
+            <p>Name and email — 30 seconds. No credit card, no calendar booking, no waiting for a human to respond.</p>
+          </div>
+          <div class="audit-step">
+            <div class="audit-step-number">2</div>
+            <h3>Have a real conversation</h3>
+            <p>Our assistant asks about your business, your actual pain points, and what you've already tried — one question at a time, like talking to a sharp consultant.</p>
+          </div>
+          <div class="audit-step">
+            <div class="audit-step-number">3</div>
+            <h3>Get concrete opportunities</h3>
+            <p>2-3 specific AI opportunities, named for your business, on screen immediately. Want a deeper look? Book a full audit when you're ready — not before.</p>
           </div>
         </div>
+      </div>
+    </section>
 
+    <!-- ============ WHAT WE ACTUALLY BUILD ============ -->
+    <section class="section section-alt" id="what-we-build">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Grounded in Real Delivery</span>
+          <h2>What the assistant is actually trained to spot</h2>
+          <p>It's listening for fits with the four things Kaidon Labs actually builds — not reciting a list of AI buzzwords.</p>
+        </div>
+
+        <div class="services-grid audit-build-grid">
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z"/></svg>
+            </div>
+            <h3>RAG Agents</h3>
+            <p>AI assistants grounded in your own documents and data — for support, internal knowledge, or customer-facing Q&amp;A that doesn't hallucinate.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="m3 11 18-8-8 18-2-8-8-2Z"/></svg>
+            </div>
+            <h3>Lead Gen Automations</h3>
+            <p>AI-driven outreach, qualification, and follow-up systems that keep your sales pipeline moving without manual busywork.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M12 2a3 3 0 0 0-3 3v6a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z"/><path d="M19 10v1a7 7 0 0 1-14 0v-1"/><path d="M12 18v4"/><path d="M9 22h6"/></svg>
+            </div>
+            <h3>Voice Agents</h3>
+            <p>AI phone and voice assistants that handle calls, scheduling, intake, and support — available whenever your customers call.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M4 4h16v16H4z"/><path d="M8 9h8"/><path d="M8 13h8"/><path d="M8 17h5"/></svg>
+            </div>
+            <h3>Content Automations</h3>
+            <p>AI-assisted content creation and publishing workflows that keep output consistent without eating up a team's whole week.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section" id="audit-faq">
+      <div class="container">
+        <div class="section-header center">
+          <span class="eyebrow">Before You Start</span>
+          <h2>Questions people usually ask first</h2>
+        </div>
+
+        <div class="audit-faq-list">
+          <details class="audit-faq-item">
+            <summary>Is this actually free?</summary>
+            <p>Yes. The chat costs nothing and there's no sales pitch inside it. If you want to go deeper afterward, that's a separate paid audit engagement — and only if you choose to book one.</p>
+          </details>
+          <details class="audit-faq-item">
+            <summary>What happens to what I share?</summary>
+            <p>It's stored and used solely to follow up about your inquiry — not sold, not used to train anything public. Brian sees every conversation directly.</p>
+          </details>
+          <details class="audit-faq-item">
+            <summary>How long does it actually take?</summary>
+            <p>Most conversations wrap up in 4-6 exchanges — usually well under 5 minutes of typing.</p>
+          </details>
+          <details class="audit-faq-item">
+            <summary>What if I'm not looking to buy anything right now?</summary>
+            <p>That's completely fine. There's no obligation attached — the ideas you get back are yours to think about, use internally, or bring to any team you like.</p>
+          </details>
+          <details class="audit-faq-item">
+            <summary>Will a real person actually see this?</summary>
+            <p>Yes — Brian gets a full internal summary the moment your chat wraps up, so if you do follow up, he's not starting from scratch.</p>
+          </details>
+        </div>
+
+        <div class="audit-final-cta">
+          <a class="btn btn-primary btn-lg" href="#start">Start the Conversation &uarr;</a>
+        </div>
       </div>
     </section>
   </main>

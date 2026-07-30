@@ -5,39 +5,107 @@
    ========================================================= */
 
 .audit-hero {
-  padding: calc(var(--nav-height) + 48px) 0 32px;
-  text-align: center;
-  background: var(--color-bg-alt);
+  padding: calc(var(--nav-height) + 56px) 0 72px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
 }
 
-.audit-hero h1 {
-  margin: 0 0 12px;
-  font-size: clamp(1.8rem, 4vw, 2.6rem);
+.audit-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.audit-hero-content h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem);
   color: var(--color-primary);
 }
 
-.audit-hero .tagline {
-  max-width: 640px;
-  margin: 0 auto;
+.audit-hero-content .tagline {
   color: var(--color-text-muted);
-  font-size: 1.05rem;
+  font-size: 1.08rem;
+  margin-bottom: 28px;
 }
 
-.audit-chat-section {
-  padding: 40px 0 80px;
-  background: var(--color-bg-alt);
+.audit-trust-list {
+  list-style: none;
+  margin: 0 0 24px;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
 }
 
-.audit-chat-container {
-  max-width: 560px;
+.audit-trust-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.audit-trust-list svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--color-accent-dark);
+}
+
+.audit-trust-list strong {
+  color: var(--color-gray-900);
+}
+
+.audit-trust-list div {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.audit-founder-note {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  border-top: 1px solid var(--color-border);
+  padding-top: 20px;
+}
+
+.audit-hero-widget {
+  width: 100%;
 }
 
 .audit-panel {
   background: var(--color-surface);
   border: 1px solid var(--color-border);
   border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-md);
+  box-shadow: var(--shadow-lg);
   padding: 32px;
+}
+
+.audit-panel-header {
+  margin-bottom: 20px;
+}
+
+.audit-panel-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
+.audit-panel-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+@media (min-width: 900px) {
+  .audit-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+
+  .audit-hero-widget {
+    position: sticky;
+    top: calc(var(--nav-height) + 24px);
+  }
 }
 
 /* .audit-chat-panel sets its own `display: flex` below, which otherwise
@@ -208,5 +276,112 @@
   }
   .audit-chat-panel {
     height: 70vh;
+  }
+}
+
+/* ---------- How it works ---------- */
+.audit-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.audit-step {
+  text-align: center;
+}
+
+.audit-step-number {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.audit-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.audit-step p {
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  margin: 0;
+}
+
+/* ---------- What we build (reuses .services-grid / .service-card) ---------- */
+.audit-build-grid .service-card:hover {
+  transform: none;
+}
+
+/* ---------- FAQ ---------- */
+.audit-faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.audit-faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px 20px;
+  background: var(--color-surface);
+}
+
+.audit-faq-item summary {
+  cursor: pointer;
+  padding: 16px 0;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.audit-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.audit-faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-accent-dark);
+  margin-left: 12px;
+}
+
+.audit-faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.audit-faq-item p {
+  margin: 0 0 18px;
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.audit-final-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1.05rem;
+}
+
+@media (min-width: 640px) {
+  .audit-steps {
+    grid-template-columns: repeat(3, 1fr);
   }
 }

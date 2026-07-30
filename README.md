@@ -120,7 +120,7 @@ The net effect: a draft written today publishes automatically ~24 hours later, w
 
 A self-serve chat a prospect can run directly on the site: a lead-gate form (name/email/company), then a few minutes of adaptive conversation with an AI intake assistant, ending in 2-3 concrete AI-opportunity areas shown on-screen immediately — no dollar figures or package pricing, by design (see `api/audit-chat/_shared.js`'s system/synthesis prompts for why). You get a fuller internal email via Resend the moment each chat completes, including a suggested audit-fee ballpark for your eyes only.
 
-**This feature needs a real backend and will not work on GitHub Pages** — GitHub Pages only serves static files, and this needs the serverless functions under `api/audit-chat/`. It only works when the site is accessed through Vercel (already connected to this repo) or a custom domain pointed at Vercel. Decide before sharing the `/ai-audit` link with anyone: cut the whole site over to Vercel as primary, or just link this page from the Vercel URL while GitHub Pages keeps serving everything else as it does today. Nothing about the code differs either way.
+**This feature needs a real backend and will not work on GitHub Pages** — GitHub Pages only serves static files, and this needs the serverless functions under `api/audit-chat/`. It works at kaidonlabs.tech because that domain is pointed at Vercel (see "Hosting" above). Don't link `/ai-audit` from the GitHub Pages mirror — only the kaidonlabs.tech URL can run the chat.
 
 ### One-time setup before this works live
 
@@ -135,6 +135,8 @@ A self-serve chat a prospect can run directly on the site: a lead-gate form (nam
 
 ## Hosting
 
-This site is hosted on **GitHub Pages, serving from the `main` branch** (https://brgalletta.github.io/kaidon-labs-website/). The generated blog HTML (`blog/index.html`, `blog/<slug>/index.html`) is committed to the repository rather than built by CI — there is no GitHub Actions build step. Run `npm run build` locally (or as part of the daily automation described above) and commit the output before pushing.
+**Primary: Vercel**, with the custom domain **kaidonlabs.tech** (and `www.kaidonlabs.tech`) pointed at it — nameservers are `ns1.vercel-dns.com`, so DNS is managed in the Vercel dashboard (Project → Settings → Domains). This is what serves the site to real visitors, including `/api/audit-chat/*`. `vercel.json` pins `outputDirectory` to the repo root and `framework` to `null` since this isn't a recognized framework — without it, Vercel's zero-config detection assumes a `public/` folder that doesn't exist here and the deploy fails with "No Output Directory named public found." `buildCommand` re-runs `npm run build` on every deploy, which is harmless (idempotent) even though the output is already committed.
 
-It's also connected to **Vercel** for redundancy / an eventual custom domain. `vercel.json` pins `outputDirectory` to the repo root and `framework` to `null` since this isn't a recognized framework — without it, Vercel's zero-config detection assumes a `public/` folder that doesn't exist here and the deploy fails with "No Output Directory named public found." `buildCommand` re-runs `npm run build` on every deploy, which is harmless (idempotent) even though the output is already committed.
+The repo is also still on **GitHub Pages, serving from the `main` branch** (https://brgalletta.github.io/kaidon-labs-website/) as an unused static mirror/backup — it can't run `/api/audit-chat/*`, so the audit chat only works through kaidonlabs.tech. All internal links (nav, CTAs, blog template) use relative paths, so nothing in the HTML hardcodes either host.
+
+The generated blog HTML (`blog/index.html`, `blog/<slug>/index.html`) is committed to the repository rather than built by CI — there is no GitHub Actions build step. Run `npm run build` locally (or as part of the daily automation described above) and commit the output before pushing.
