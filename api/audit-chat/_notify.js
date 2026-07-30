@@ -51,6 +51,7 @@ export async function notifyBrianOfCompletedLead(lead) {
     <ul>
       <li><strong>Business:</strong> ${escapeHtml(extracted.business_summary)}</li>
       <li><strong>Size/volume:</strong> ${escapeHtml(extracted.size_or_volume_signal)}</li>
+      <li><strong>Primary department/function:</strong> ${escapeHtml(extracted.primary_department_or_function)}</li>
       <li><strong>Pain points:</strong> ${escapeHtml((extracted.pain_points || []).join(", "))}</li>
       <li><strong>Pain point cost:</strong> ${escapeHtml(extracted.pain_point_cost)}</li>
       <li><strong>Tools/systems:</strong> ${escapeHtml((extracted.tools_systems_in_use || []).join(", "))}</li>
@@ -59,6 +60,14 @@ export async function notifyBrianOfCompletedLead(lead) {
 
     <h3>Recommended initiatives (internal — fuller than what the prospect saw)</h3>
     <ul>${renderInitiativesHtml(lead.initiatives_internal)}</ul>
+
+    <h3>Qualification signal (internal only — not shown to the prospect)</h3>
+    <p>${escapeHtml(lead.qualification_signal)}</p>
+    <ul>
+      <li><strong>Decision maker:</strong> ${escapeHtml(extracted.decision_maker_signal) || "not mentioned"}</li>
+      <li><strong>Timeline:</strong> ${escapeHtml(extracted.timeline_signal) || "not mentioned"}</li>
+      <li><strong>Budget precedent:</strong> ${escapeHtml(extracted.budget_precedent_signal) || "not mentioned"}</li>
+    </ul>
 
     <h3>Suggested audit-fee ballpark (internal only — not shown to the prospect)</h3>
     <p>${escapeHtml(lead.fee_estimate_note)}</p>

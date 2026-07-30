@@ -92,6 +92,7 @@ export default async function handler(req, res) {
       initiatives_prospect: synthesis.prospect,
       initiatives_internal: synthesis.internal,
       fee_estimate_note: synthesis.fee_estimate_note,
+      qualification_signal: synthesis.qualification_signal,
     };
 
     await supabaseFetch(`website_audit_leads?id=eq.${lead.id}`, {
