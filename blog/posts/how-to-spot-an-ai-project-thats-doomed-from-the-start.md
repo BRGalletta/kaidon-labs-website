@@ -1,10 +1,10 @@
 ---
-title: "How to Spot an AI Project That's Doomed From the Start"
-date: "2026-07-29T10:05:31.980Z"
-slug: "how-to-spot-an-ai-project-thats-doomed-from-the-start"
-excerpt: "The warning signs of a failing AI project usually show up long before launch — if you know where to look."
-status: pending
-publishAt: "2026-07-30T10:05:31.980Z"
+title: How to Spot an AI Project That's Doomed From the Start
+date: '2026-07-29T10:05:31.980Z'
+slug: how-to-spot-an-ai-project-thats-doomed-from-the-start
+excerpt: >-
+  The warning signs of a failing AI project usually show up long before launch —
+  if you know where to look.
 ---
 
 Not every AI project fails loudly. Most don't blow up — they just quietly stall. The budget gets spent, a demo gets built, everyone nods in a meeting, and then six months later nobody can quite explain what happened to it. If you've been through an AI rollout, or watched one from the sidelines, you've probably seen this pattern before.

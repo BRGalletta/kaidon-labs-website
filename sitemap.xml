@@ -2,19 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kaidonlabs.tech/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/ai-audit/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/site-demo/</loc>
-    <lastmod>2026-07-30</lastmod>
+    <lastmod>2026-07-31</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/</loc>
-    <lastmod>2026-07-27</lastmod>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://kaidonlabs.tech/blog/how-to-spot-an-ai-project-thats-doomed-from-the-start/</loc>
+    <lastmod>2026-07-29</lastmod>
+  </url>
+  <url>
+    <loc>https://kaidonlabs.tech/blog/ai-chatbots-vs-traditional-live-chat/</loc>
+    <lastmod>2026-07-28</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/the-real-cost-of-building-a-custom-ai-solution/</loc>

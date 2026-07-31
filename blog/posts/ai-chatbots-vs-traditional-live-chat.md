@@ -1,10 +1,10 @@
 ---
-title: "AI Chatbots vs. Traditional Live Chat: What's the Difference"
-date: "2026-07-28T10:06:05.471Z"
-slug: "ai-chatbots-vs-traditional-live-chat"
-excerpt: "They look like the same little bubble in the corner, but how they work — and what they're good at — is quite different."
-status: pending
-publishAt: "2026-07-29T10:06:05.471Z"
+title: 'AI Chatbots vs. Traditional Live Chat: What''s the Difference'
+date: '2026-07-28T10:06:05.471Z'
+slug: ai-chatbots-vs-traditional-live-chat
+excerpt: >-
+  They look like the same little bubble in the corner, but how they work — and
+  what they're good at — is quite different.
 ---
 
 If you're weighing whether to add a chat widget to your website, you've probably noticed that "chat" now means two very different things. There's traditional live chat — a human agent on the other end, typing in real time — and there's the AI chatbot, which can range from a simple scripted assistant to something that reads and responds in full sentences using a language model. They look almost identical on the page: a bubble in the corner, a text box, a friendly greeting. But how they work and what they're actually good at are quite different.
