@@ -18,9 +18,19 @@
 const SCREENSHOTONE_API_KEY = process.env.SCREENSHOTONE_API_KEY;
 const SCREENSHOT_TIMEOUT_MS = 20000;
 
+// A real, current iPhone Safari UA — some sites branch their layout on user
+// agent rather than (or in addition to) viewport width, so viewport_mobile
+// alone isn't always enough to get the actual mobile experience.
+const MOBILE_USER_AGENT =
+  "Mozilla/5.0 (iPhone; CPU iPhone OS 17_5 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.5 Mobile/15E148 Safari/604.1";
+
 export class ScreenshotError extends Error {}
 
-function buildScreenshotRequestUrl(targetUrl) {
+// `mobile: true` captures as an iPhone would see it (the visitor's own
+// device at the time they submitted the form — see create.js/capture.js)
+// instead of ScreenshotOne's desktop default, so the demo shows the layout
+// that visitor would actually get on the real site.
+function buildScreenshotRequestUrl(targetUrl, { mobile = false } = {}) {
   if (!SCREENSHOTONE_API_KEY) {
     throw new ScreenshotError("SCREENSHOTONE_API_KEY is not set");
   }
@@ -49,13 +59,23 @@ function buildScreenshotRequestUrl(targetUrl) {
     // come back as a 200.
     metadata_http_response_status_code: "true",
   });
+
+  if (mobile) {
+    params.set("viewport_width", "390");
+    params.set("viewport_height", "844");
+    params.set("device_scale_factor", "2");
+    params.set("viewport_mobile", "true");
+    params.set("viewport_has_touch", "true");
+    params.set("user_agent", MOBILE_USER_AGENT);
+  }
+
   return `https://api.screenshotone.com/take?${params.toString()}`;
 }
 
 // Returns { bytes: ArrayBuffer, contentType: string } — never a URL
 // containing the API key. Throws ScreenshotError on failure/timeout.
-export async function captureScreenshot(targetUrl) {
-  const requestUrl = buildScreenshotRequestUrl(targetUrl);
+export async function captureScreenshot(targetUrl, options) {
+  const requestUrl = buildScreenshotRequestUrl(targetUrl, options);
 
   let res;
   try {

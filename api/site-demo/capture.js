@@ -61,7 +61,7 @@ export default async function handler(req, res) {
     }
 
     const [screenshotResult, scrapeResult] = await Promise.allSettled([
-      captureScreenshot(session.target_url),
+      captureScreenshot(session.target_url, { mobile: session.viewport === "mobile" }),
       scrapeSite(session.target_url),
     ]);
 

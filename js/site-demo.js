@@ -40,6 +40,14 @@
     }
   }
 
+  // Screenshot the target as this visitor's own device would see it — same
+  // breakpoint site-demo.css already uses for its own mobile layout, so
+  // "mobile" here means the same thing it means everywhere else in this
+  // feature.
+  function detectViewport() {
+    return window.matchMedia && window.matchMedia("(max-width: 640px)").matches ? "mobile" : "desktop";
+  }
+
   gateForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
@@ -65,7 +73,13 @@
     fetch("/api/site-demo/create", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name: name, email: email, company: company || null, target_url: targetUrl }),
+      body: JSON.stringify({
+        name: name,
+        email: email,
+        company: company || null,
+        target_url: targetUrl,
+        viewport: detectViewport(),
+      }),
     })
       .then(function (response) {
         return response.json().then(function (data) {

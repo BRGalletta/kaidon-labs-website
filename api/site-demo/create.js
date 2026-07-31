@@ -33,11 +33,15 @@ export default async function handler(req, res) {
     return;
   }
 
-  const { name, email, company, target_url: targetUrlInput } = req.body || {};
+  const { name, email, company, target_url: targetUrlInput, viewport } = req.body || {};
   if (!name || !email || !targetUrlInput) {
     res.status(400).json({ error: "name, email, and target_url are required" });
     return;
   }
+  // Untrusted client-reported hint of the visitor's own device at submit
+  // time (see js/site-demo.js) — anything other than the one recognized
+  // value just falls back to desktop, no validation error needed for it.
+  const safeViewport = viewport === "mobile" ? "mobile" : "desktop";
 
   let safeUrl;
   try {
@@ -84,6 +88,7 @@ export default async function handler(req, res) {
           company: company || null,
           target_url: safeUrl,
           created_ip: clientIp,
+          viewport: safeViewport,
           status: "pending",
         },
       ],

@@ -45,6 +45,7 @@ create table site_demo_sessions (
   email text not null,
   company text,
   target_url text not null,
+  viewport text not null default 'desktop',        -- 'desktop' | 'mobile' -- the visitor's own device at submit time; decides the screenshot's viewport
   created_ip text,                                -- for the per-IP daily abuse cap (email alone is self-reported)
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
