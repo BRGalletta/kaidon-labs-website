@@ -1,0 +1,540 @@
+/* =========================================================
+   Kaidon Labs — site-demo.css
+   Styles for /site-demo (landing page) and /site-demo/preview
+   (screenshot backdrop + floating chat widget). Extends the
+   design tokens already defined in styles.css. This is the
+   first place in the codebase using position: fixed for a
+   corner-anchored widget — z-index 1000 is this file's own
+   scale, not shared with anything else yet.
+   ========================================================= */
+
+/* ---------- Landing page hero ---------- */
+.demo-hero {
+  padding: calc(var(--nav-height) + 56px) 0 72px;
+  background: linear-gradient(180deg, #f8fafc 0%, #ffffff 100%);
+}
+
+.demo-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  align-items: start;
+}
+
+.demo-hero-content h1 {
+  margin: 12px 0 16px;
+  font-size: clamp(1.9rem, 4.2vw, 2.7rem);
+  color: var(--color-primary);
+}
+
+.demo-hero-content h1 em {
+  font-style: normal;
+  color: var(--color-accent-dark);
+}
+
+.demo-hero-content .tagline {
+  color: var(--color-text-muted);
+  font-size: 1.08rem;
+  margin-bottom: 28px;
+}
+
+.demo-trust-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.demo-trust-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.demo-trust-list svg {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin-top: 2px;
+  color: var(--color-accent-dark);
+}
+
+.demo-trust-list strong {
+  color: var(--color-gray-900);
+}
+
+.demo-trust-list div {
+  color: var(--color-text-muted);
+  font-size: 0.98rem;
+  line-height: 1.5;
+}
+
+.demo-hero-widget {
+  width: 100%;
+}
+
+.demo-panel {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 32px;
+}
+
+.demo-panel-header {
+  margin-bottom: 20px;
+}
+
+.demo-panel-header h2 {
+  margin: 0 0 6px;
+  font-size: 1.3rem;
+  color: var(--color-primary);
+}
+
+.demo-panel-header p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+}
+
+.demo-panel .form-optional {
+  color: var(--color-text-muted);
+  font-weight: 400;
+}
+
+@media (min-width: 900px) {
+  .demo-hero-grid {
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 56px;
+  }
+}
+
+/* ---------- How it works ---------- */
+.demo-steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+
+.demo-step {
+  text-align: center;
+}
+
+.demo-step-number {
+  width: 40px;
+  height: 40px;
+  margin: 0 auto 16px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 700;
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.demo-step h3 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+}
+
+.demo-step p {
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  margin: 0;
+}
+
+.demo-build-grid .service-card:hover {
+  transform: none;
+}
+
+@media (min-width: 640px) {
+  .demo-steps {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ---------- FAQ ---------- */
+.demo-faq-list {
+  max-width: 720px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.demo-faq-item {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 4px 20px;
+  background: var(--color-surface);
+}
+
+.demo-faq-item summary {
+  cursor: pointer;
+  padding: 16px 0;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.demo-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.demo-faq-item summary::after {
+  content: "+";
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-accent-dark);
+  margin-left: 12px;
+}
+
+.demo-faq-item[open] summary::after {
+  content: "\2212";
+}
+
+.demo-faq-item p {
+  margin: 0 0 18px;
+  color: var(--color-text-muted);
+  font-size: 0.97rem;
+  line-height: 1.6;
+}
+
+.demo-final-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.btn-lg {
+  padding: 16px 32px;
+  font-size: 1.05rem;
+}
+
+@media (max-width: 640px) {
+  .demo-panel {
+    padding: 20px;
+  }
+}
+
+/* =========================================================
+   Preview page (/site-demo/preview) — screenshot backdrop +
+   floating chat widget over it. No site nav/footer on this
+   page on purpose: the point is that it reads as the target
+   site's own homepage, not a Kaidon Labs page.
+   ========================================================= */
+
+.demo-preview-body {
+  background: var(--color-gray-900);
+  min-height: 100vh;
+}
+
+/* ---------- Disclaimer badge ---------- */
+.demo-disclaimer-badge {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1001; /* above the widget (1000) — the disclaimer must never be covered */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding: 10px 16px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-size: 0.85rem;
+  text-align: center;
+}
+
+.demo-disclaimer-badge strong {
+  color: var(--color-text-inverse);
+}
+
+.demo-disclaimer-link {
+  color: var(--color-text-inverse);
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+/* ---------- Loading state ---------- */
+.demo-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 60px 24px 0; /* top padding clears the fixed disclaimer badge */
+  color: var(--color-text-inverse);
+  text-align: center;
+}
+
+.demo-loading-spinner {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.25);
+  border-top-color: var(--color-accent);
+  animation: demo-spin 0.9s linear infinite;
+}
+
+@keyframes demo-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-loading-spinner {
+    animation: none;
+  }
+}
+
+/* ---------- Error state ---------- */
+.demo-error {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 24px 0;
+}
+
+.demo-error-card {
+  max-width: 420px;
+  text-align: center;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  padding: 32px;
+}
+
+.demo-error-card h2 {
+  margin: 0 0 10px;
+  color: var(--color-primary);
+}
+
+.demo-error-card p {
+  color: var(--color-text-muted);
+  margin-bottom: 20px;
+}
+
+/* ---------- Screenshot backdrop ---------- */
+.demo-backdrop-wrap {
+  padding-top: 40px; /* clears the fixed disclaimer badge */
+  background: var(--color-bg);
+}
+
+.demo-backdrop-image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* ---------- Floating widget ---------- */
+.demo-widget-launcher {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: none;
+  background: var(--color-accent);
+  color: #06231f;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.demo-widget-launcher svg {
+  width: 26px;
+  height: 26px;
+}
+
+.demo-widget-launcher:hover {
+  transform: scale(1.06);
+}
+
+.demo-widget-launcher[aria-expanded="true"] {
+  display: none;
+}
+
+.demo-widget-panel {
+  position: fixed;
+  bottom: 96px;
+  right: 24px;
+  z-index: 1000;
+  width: min(380px, calc(100vw - 32px));
+  max-height: min(560px, calc(100vh - 140px));
+  display: flex;
+  flex-direction: column;
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+
+.demo-widget-panel[hidden] {
+  display: none;
+}
+
+.demo-widget-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 18px;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.demo-widget-close {
+  background: none;
+  border: none;
+  color: var(--color-text-inverse);
+  font-size: 1.3rem;
+  line-height: 1;
+  cursor: pointer;
+  padding: 0 4px;
+}
+
+.demo-widget-footer {
+  padding: 8px 18px 12px;
+  font-size: 0.78rem;
+  color: var(--color-text-muted);
+  text-align: center;
+  border-top: 1px solid var(--color-border);
+}
+
+.demo-widget-footer a {
+  color: var(--color-accent-dark);
+}
+
+/* ---------- Chat mechanics (mirrors ai-audit's chat UI patterns) ---------- */
+.demo-widget-panel .chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 16px;
+  min-height: 240px;
+}
+
+.demo-widget-panel .chat-bubble {
+  max-width: 85%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  font-size: 0.92rem;
+  line-height: 1.45;
+  white-space: pre-wrap;
+}
+
+.demo-widget-panel .chat-bubble.assistant {
+  align-self: flex-start;
+  background: var(--color-gray-100);
+  color: var(--color-text);
+  border-bottom-left-radius: 4px;
+}
+
+.demo-widget-panel .chat-bubble.user {
+  align-self: flex-end;
+  background: var(--color-primary);
+  color: var(--color-text-inverse);
+  border-bottom-right-radius: 4px;
+}
+
+.demo-widget-panel .chat-bubble.typing {
+  align-self: flex-start;
+  background: var(--color-gray-100);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 12px 14px;
+}
+
+.demo-widget-panel .typing-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+  animation: demo-typing-bounce 1.2s infinite ease-in-out;
+}
+
+.demo-widget-panel .typing-dot:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.demo-widget-panel .typing-dot:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes demo-typing-bounce {
+  0%, 60%, 100% {
+    transform: translateY(0);
+    opacity: 0.5;
+  }
+  30% {
+    transform: translateY(-4px);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .demo-widget-panel .typing-dot {
+    animation: none;
+    opacity: 0.7;
+  }
+}
+
+.demo-widget-panel .chat-input-row {
+  display: flex;
+  gap: 8px;
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+}
+
+.demo-widget-panel .chat-input-row input {
+  flex: 1;
+  padding: 10px 12px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+}
+
+.demo-widget-panel .chat-input-row input:focus {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 1px;
+}
+
+/* ---------- Mobile: bottom sheet instead of a small floating box ---------- */
+@media (max-width: 640px) {
+  .demo-widget-panel {
+    bottom: 0;
+    right: 0;
+    left: 0;
+    width: 100%;
+    max-height: 80vh;
+    height: 80vh;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  }
+
+  .demo-widget-launcher {
+    bottom: 16px;
+    right: 16px;
+  }
+}

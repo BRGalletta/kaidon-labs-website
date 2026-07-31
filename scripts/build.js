@@ -26,6 +26,7 @@ const BLOG_DIR = path.join(ROOT, "blog");
 const STATIC_PAGES = [
   { urlPath: "/", file: path.join(ROOT, "index.html") },
   { urlPath: "/ai-audit/", file: path.join(ROOT, "ai-audit", "index.html") },
+  { urlPath: "/site-demo/", file: path.join(ROOT, "site-demo", "index.html") },
 ];
 
 function formatDate(isoString) {

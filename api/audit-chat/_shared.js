@@ -1,12 +1,12 @@
 // Shared helpers for the /api/audit-chat/* serverless functions: the
-// Anthropic client setup, a thin Supabase REST wrapper (same apikey/Bearer
-// pattern the agency skills already use against the `pipeline` table, just
-// pointed at `website_audit_leads`), the conversation system prompt, and
-// the tool schema used for inline structured-data extraction.
+// conversation system prompt and the tool schema used for inline
+// structured-data extraction. The generic Anthropic-client and Supabase-fetch
+// helpers live in api/_lib/ so sibling features (e.g. site-demo) don't need
+// to reach into this feature-specific file to get them.
 
-import Anthropic from "@anthropic-ai/sdk";
+export { getAnthropicClient, MODEL, setTestFetchOverride } from "../_lib/anthropic.js";
+export { supabaseFetch } from "../_lib/supabase.js";
 
-export const MODEL = "claude-sonnet-5";
 export const MAX_USER_TURNS = 8; // hard backstop even if the model never sets ready_for_synthesis
 // Kept small on purpose: each iteration is a sequential live Claude call within
 // one Vercel function invocation, and Vercel's per-request timeout (as low as
@@ -14,50 +14,6 @@ export const MAX_USER_TURNS = 8; // hard backstop even if the model never sets r
 // conversation's context grows. The system prompt now tells the model to always
 // reply in the same turn as any tool call, so this should rarely exceed 1.
 export const MAX_TOOL_LOOP_ITERATIONS = 2;
-
-const SUPABASE_URL = process.env.SUPABASE_URL;
-const SERVICE_ROLE_KEY = process.env.SUPABASE_SERVICE_ROLE_KEY;
-const ANTHROPIC_API_KEY = process.env.ANTHROPIC_API_KEY;
-
-// Test-only seam: the SDK doesn't reliably pick up a reassigned
-// globalThis.fetch, so a test harness that needs to mock Anthropic calls
-// should call setTestFetchOverride() before invoking a handler. Production
-// code never calls this, so testFetchOverride stays undefined in prod.
-let testFetchOverride;
-export function setTestFetchOverride(fn) {
-  testFetchOverride = fn;
-}
-
-export function getAnthropicClient() {
-  if (!ANTHROPIC_API_KEY) {
-    throw new Error("ANTHROPIC_API_KEY is not set");
-  }
-  return new Anthropic({ apiKey: ANTHROPIC_API_KEY, ...(testFetchOverride ? { fetch: testFetchOverride } : {}) });
-}
-
-// Minimal fetch wrapper against Supabase's PostgREST API. Throws on any
-// non-OK response so callers can decide how to handle it — this module
-// never swallows an error silently.
-export async function supabaseFetch(path, { method = "GET", body, headers = {} } = {}) {
-  if (!SUPABASE_URL || !SERVICE_ROLE_KEY) {
-    throw new Error("SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY not set");
-  }
-  const res = await fetch(`${SUPABASE_URL}/rest/v1/${path}`, {
-    method,
-    headers: {
-      "Content-Type": "application/json",
-      "apikey": SERVICE_ROLE_KEY,
-      "Authorization": `Bearer ${SERVICE_ROLE_KEY}`,
-      ...headers,
-    },
-    body: body ? JSON.stringify(body) : undefined,
-  });
-  if (!res.ok) {
-    const text = await res.text().catch(() => "");
-    throw new Error(`Supabase ${method} ${path} failed (${res.status}): ${text}`);
-  }
-  return res.status === 204 ? null : res.json();
-}
 
 export const SYSTEM_PROMPT = `You are the AI intake conversation for Kaidon Labs, a practical AI consulting agency (founder: Brian Galletta). A prospect just landed on the "AI Audit" page of the Kaidon Labs website and is chatting with you directly — there is no human in this conversation yet.
 

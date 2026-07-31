@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Site's AI Demo | Kaidon Labs</title>
+  <!-- Dynamic, per-visitor, third-party-content page — never indexed. See
+       robots.txt for the matching Disallow: /site-demo/preview/ rule. -->
+  <meta name="robots" content="noindex, nofollow" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314335c'/%3E%3Ccircle cx='20' cy='22' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='44' cy='20' r='5' fill='%23ffffff'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='20' cy='42' r='4' fill='%23ffffff'/%3E%3Cline x1='20' y1='22' x2='44' y2='20' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='22' x2='20' y2='42' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='42' x2='46' y2='44' stroke='%2316b8a6' stroke-width='2'/%3E%3Cline x1='44' y1='20' x2='46' y2='44' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+  <link rel="stylesheet" href="../../css/site-demo.css" />
+</head>
+<body class="demo-preview-body">
+
+  <!-- ============ DISCLAIMER BADGE (always visible, non-dismissible) ============ -->
+  <div class="demo-disclaimer-badge">
+    <span>Demo preview by <strong>Kaidon Labs</strong> — not affiliated with <span id="disclaimer-domain">this site</span>.</span>
+    <a href="../../index.html" class="demo-disclaimer-link">What is this?</a>
+  </div>
+
+  <!-- ============ LOADING STATE ============ -->
+  <div class="demo-loading" id="loading-state">
+    <div class="demo-loading-spinner" aria-hidden="true"></div>
+    <p id="loading-message">Capturing your site and reading its content&hellip;</p>
+  </div>
+
+  <!-- ============ ERROR STATE ============ -->
+  <div class="demo-error" id="error-state" hidden>
+    <div class="demo-error-card">
+      <h2>Something went wrong</h2>
+      <p id="error-message">We couldn't capture that site.</p>
+      <a class="btn btn-primary" href="../">Try another URL</a>
+    </div>
+  </div>
+
+  <!-- ============ SCREENSHOT BACKDROP ============ -->
+  <div class="demo-backdrop-wrap" id="backdrop-wrap" hidden>
+    <img id="backdrop-image" class="demo-backdrop-image" alt="Screenshot of the submitted website's homepage" />
+  </div>
+
+  <!-- ============ FLOATING CHAT WIDGET ============ -->
+  <div class="demo-widget" id="demo-widget" hidden>
+    <button class="demo-widget-launcher" id="widget-launcher" aria-label="Open chat" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.4 0-2.7-.3-3.9-.9L3 20l1-4.6A8.5 8.5 0 1 1 21 11.5Z"/></svg>
+    </button>
+
+    <div class="demo-widget-panel" id="widget-panel" hidden>
+      <div class="demo-widget-header">
+        <span>Chat with this site's AI</span>
+        <button class="demo-widget-close" id="widget-close" aria-label="Close chat">&times;</button>
+      </div>
+      <div class="chat-messages" id="chat-messages" aria-live="polite"></div>
+      <form id="chat-form" class="chat-input-row">
+        <input type="text" id="chat-input" placeholder="Ask about this business..." autocomplete="off" />
+        <button type="submit" class="btn btn-primary" id="chat-send">Send</button>
+      </form>
+      <div class="demo-widget-footer">Powered by <a href="../../index.html" target="_blank" rel="noopener">Kaidon Labs</a></div>
+    </div>
+  </div>
+
+  <script src="../../js/site-demo-preview.js"></script>
+</body>
+</html>

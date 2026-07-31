@@ -13,7 +13,16 @@ ai-audit/index.html     Self-serve AI audit chat page (lead-gate form -> chat ->
 css/audit-chat.css      Styles for the ai-audit page only
 js/audit-chat.js        Lead-gate + chat + result view logic for ai-audit
 api/audit-chat/         Vercel serverless functions backing ai-audit (see "AI Audit chat" below)
-api/schema.sql          One-time SQL for the website_audit_leads Supabase table
+
+site-demo/index.html            Self-serve "chat with your own site" demo landing page
+site-demo/preview/index.html    Screenshot backdrop + floating chat widget (see "Site Demo" below)
+css/site-demo.css                Styles for both site-demo pages
+js/site-demo.js                  Landing-page form logic
+js/site-demo-preview.js          Preview-page polling + floating widget + chat logic
+api/site-demo/                   Vercel serverless functions backing site-demo
+
+api/_lib/                Generic helpers (Anthropic client, Supabase fetch/storage) shared by both features
+api/schema.sql          One-time SQL for the website_audit_leads and site_demo_sessions Supabase tables
 
 blog/posts/              Published post source files (Markdown + frontmatter)
 blog/drafts/              Pending post source files awaiting auto-publish
@@ -133,11 +142,31 @@ A self-serve chat a prospect can run directly on the site: a lead-gate form (nam
 
 `npm install` picks up the new `@anthropic-ai/sdk` and `resend` dependencies. To test the API handlers locally you'll need the Vercel CLI (`npm i -g vercel`, then `vercel dev`) and a local `.env` with the same variables listed above — the handlers are plain `(req, res)` functions and don't depend on any Vercel-specific APIs beyond that.
 
+## Site Demo (`/site-demo`)
+
+A self-serve "chat with your own site" demo: a visitor enters any public URL, and the tool captures a full-page screenshot of that site's homepage, reads its public content (homepage + up to 3 obviously-linked pages like About/Services/Contact, no deep crawl), and shows the screenshot with a live AI chat widget floating on top — grounded entirely in that site's own content — as a demo of what a custom Kaidon Labs RAG chatbot would feel like installed on a real site. Same lead-gate pattern as `/ai-audit` (name/email/company, plus the target URL).
+
+Flow: `POST /api/site-demo/create` (fast — validates the lead and SSRF-checks the URL, creates a `pending` session, returns immediately) → the preview page at `/site-demo/preview/?session_id=...` triggers `POST /api/site-demo/capture` (the slow step — screenshot + scrape run concurrently, then one Claude call generates the opening message) → the preview page polls `GET /api/site-demo/status` until ready → `POST /api/site-demo/chat` handles each turn afterward. See `api/site-demo/_ssrf.js` for the SSRF protections around fetching an arbitrary public URL server-side (this is the only feature in the repo that does), and `api/site-demo/_shared.js` for why this chatbot has no tool-use loop or synthesis step, unlike audit-chat.
+
+**Also needs the Vercel backend, same as `/ai-audit`** — won't work on the GitHub Pages mirror.
+
+### One-time setup before this works live
+
+1. **Supabase schema**: append is already in `api/schema.sql` (the `site_demo_sessions` table) — re-run the whole file in the same dedicated AI-audit-leads Supabase project (same trust tier as `website_audit_leads`: anonymous public-visitor data, no vetting).
+2. **Supabase Storage bucket**: create a bucket named `site-demo-screenshots` in that same project (Storage → New bucket) and mark it **public**. Screenshots are fetched server-side from the screenshot provider and re-uploaded here — the provider's own URL is never stored or served directly, since it embeds a paid API key as a query parameter that would otherwise leak to every visitor's browser.
+3. **ScreenshotOne**: sign up at screenshotone.com (a screenshot-as-a-service API — deliberately used instead of running headless Chromium inside a Vercel function, which has known binary-size/timeout problems) and grab an API key.
+4. **Vercel environment variable**: `SCREENSHOTONE_API_KEY`, alongside the existing `ANTHROPIC_API_KEY`/`SUPABASE_URL`/`SUPABASE_SERVICE_ROLE_KEY` already set up for audit-chat (reused as-is — same Supabase project).
+5. Redeploy after setting the env var.
+
+### Retention
+
+Sessions (screenshots + scraped content) are meant to expire after **14 days** — there's no cron infrastructure in this repo (same as the daily blog automation, which is also meant to be run externally), so run `node scripts/cleanup-site-demo-sessions.js` manually or wire it into whatever scheduler eventually runs the daily content automation.
+
 ## Hosting
 
-**Primary: Vercel**, with the custom domain **kaidonlabs.tech** (and `www.kaidonlabs.tech`) pointed at it — nameservers are `ns1.vercel-dns.com`, so DNS is managed in the Vercel dashboard (Project → Settings → Domains). This is what serves the site to real visitors, including `/api/audit-chat/*`. `vercel.json` pins `outputDirectory` to the repo root and `framework` to `null` since this isn't a recognized framework — without it, Vercel's zero-config detection assumes a `public/` folder that doesn't exist here and the deploy fails with "No Output Directory named public found." `buildCommand` re-runs `npm run build` on every deploy, which is harmless (idempotent) even though the output is already committed.
+**Primary: Vercel**, with the custom domain **kaidonlabs.tech** (and `www.kaidonlabs.tech`) pointed at it — nameservers are `ns1.vercel-dns.com`, so DNS is managed in the Vercel dashboard (Project → Settings → Domains). This is what serves the site to real visitors, including `/api/audit-chat/*` and `/api/site-demo/*`. `vercel.json` pins `outputDirectory` to the repo root and `framework` to `null` since this isn't a recognized framework — without it, Vercel's zero-config detection assumes a `public/` folder that doesn't exist here and the deploy fails with "No Output Directory named public found." `buildCommand` re-runs `npm run build` on every deploy, which is harmless (idempotent) even though the output is already committed.
 
-The repo is also still on **GitHub Pages, serving from the `main` branch** (https://brgalletta.github.io/kaidon-labs-website/) as an unused static mirror/backup — it can't run `/api/audit-chat/*`, so the audit chat only works through kaidonlabs.tech. All internal links (nav, CTAs, blog template) use relative paths, so nothing in the HTML hardcodes either host.
+The repo is also still on **GitHub Pages, serving from the `main` branch** (https://brgalletta.github.io/kaidon-labs-website/) as an unused static mirror/backup — it can't run `/api/audit-chat/*` or `/api/site-demo/*`, so neither chat feature works through anything but kaidonlabs.tech. All internal links (nav, CTAs, blog template) use relative paths, so nothing in the HTML hardcodes either host.
 
 The generated blog HTML (`blog/index.html`, `blog/<slug>/index.html`) is committed to the repository rather than built by CI — there is no GitHub Actions build step. Run `npm run build` locally (or as part of the daily automation described above) and commit the output before pushing.
 
@@ -147,7 +176,8 @@ Every page has a canonical URL, Open Graph/Twitter meta tags, and JSON-LD struct
 
 - **Homepage** (`index.html`): `Organization` (with the four core services as `makesOffer`) + `WebSite` schema. `sameAs` is intentionally omitted — the footer social links are still placeholders (`href="#"`); add real profile URLs there and to the schema together once they exist.
 - **`/ai-audit`**: `FAQPage` schema mirroring the on-page FAQ verbatim (Google requires the schema text to match visible text), plus a `BreadcrumbList`.
+- **`/site-demo`**: canonical/OG/Twitter + `BreadcrumbList`, same as any other static marketing page. Its dynamic sibling, `/site-demo/preview/*`, is deliberately excluded from all of this (`noindex, nofollow` meta tag + a `robots.txt` disallow) — those pages render a third party's scraped content and screenshot, and should never be indexed or treated as this site's own content.
 - **Blog posts / blog index** (`scripts/template.js`, `scripts/build.js`): `renderPage()` takes `canonicalPath` and `schema` and handles canonical/OG/Twitter/JSON-LD automatically. Each post gets `BlogPosting` + `BreadcrumbList` schema generated from its frontmatter — nothing to hand-maintain per post.
-- **`sitemap.xml`** (repo root) is regenerated by `npm run build` on every run — it covers the homepage, `/ai-audit`, the blog index, and every published post, so it self-updates as part of the existing daily content automation. `robots.txt` (repo root) allows everything except `/api/` and points crawlers at the sitemap.
+- **`sitemap.xml`** (repo root) is regenerated by `npm run build` on every run — it covers the homepage, `/ai-audit`, `/site-demo`, the blog index, and every published post (never `/site-demo/preview/*`), so it self-updates as part of the existing daily content automation. `robots.txt` (repo root) allows everything except `/api/` and `/site-demo/preview/`, and points crawlers at the sitemap.
 
 To sanity-check structured data after changes, paste a page's URL into [Google's Rich Results Test](https://search.google.com/test/rich-results).
