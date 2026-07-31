@@ -277,6 +277,17 @@
   text-align: center;
 }
 
+/* `display: flex` above otherwise beats the browser's default
+   `[hidden] { display: none }` rule — an author-stylesheet class rule
+   always wins over the user-agent stylesheet's [hidden] handling
+   regardless of the hidden attribute's actual state. Without this,
+   toggling `hidden` via JS silently does nothing and this stays visible
+   forever (same pitfall .audit-panel[hidden] guards against in
+   audit-chat.css). */
+.demo-loading[hidden] {
+  display: none;
+}
+
 .demo-loading-spinner {
   width: 40px;
   height: 40px;
@@ -305,6 +316,11 @@
   align-items: center;
   justify-content: center;
   padding: 60px 24px 0;
+}
+
+/* Same [hidden]-vs-display:flex specificity fix as .demo-loading above. */
+.demo-error[hidden] {
+  display: none;
 }
 
 .demo-error-card {
