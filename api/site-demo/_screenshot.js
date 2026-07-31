@@ -42,6 +42,12 @@ function buildScreenshotRequestUrl(targetUrl) {
     // outright; a bot-block page in the screenshot is an honest reflection
     // of what happened, not a broken feature.
     ignore_host_errors: "true",
+    // Without this, ScreenshotOne doesn't include the
+    // X-ScreenshotOne-HTTP-Response-Status-Code response header at all, so
+    // there'd be no way to tell "rendered the real homepage" apart from
+    // "rendered a bot-block/error page" once ignore_host_errors lets both
+    // come back as a 200.
+    metadata_http_response_status_code: "true",
   });
   return `https://api.screenshotone.com/take?${params.toString()}`;
 }
@@ -61,6 +67,19 @@ export async function captureScreenshot(targetUrl) {
   if (!res.ok) {
     const text = await res.text().catch(() => "");
     throw new ScreenshotError(`Screenshot provider returned ${res.status}: ${text.slice(0, 300)}`);
+  }
+
+  // ignore_host_errors above means ScreenshotOne still returns 200 + image
+  // bytes even when the target itself errored (bot-protection challenge
+  // page, geo block, etc.) — this header carries the *target's* real status
+  // code so we can catch that case and fail the session cleanly instead of
+  // silently uploading a screenshot of someone else's "Access Denied" page
+  // and presenting it as this business's homepage.
+  const originStatus = Number(res.headers.get("x-screenshotone-http-response-status-code"));
+  if (originStatus && (originStatus < 200 || originStatus >= 300)) {
+    throw new ScreenshotError(
+      `This site blocked our screenshot tool (it returned HTTP ${originStatus}) — try a different URL.`
+    );
   }
 
   const bytes = await res.arrayBuffer();
