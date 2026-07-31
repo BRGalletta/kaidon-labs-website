@@ -34,6 +34,14 @@ function buildScreenshotRequestUrl(targetUrl) {
     block_cookie_banners: "true",
     block_trackers: "true",
     cache: "true", // ScreenshotOne-side caching — repeat demos of the same site don't re-render
+    // Without this, ScreenshotOne hard-fails the whole request whenever the
+    // target's homepage responds with a non-2xx status — which real sites do
+    // surprisingly often (bot-protection challenge pages, geo/consent
+    // redirects, a site that 404s at "/" but is otherwise fine). We'd still
+    // rather show whatever page actually came back than fail the demo
+    // outright; a bot-block page in the screenshot is an honest reflection
+    // of what happened, not a broken feature.
+    ignore_host_errors: "true",
   });
   return `https://api.screenshotone.com/take?${params.toString()}`;
 }
