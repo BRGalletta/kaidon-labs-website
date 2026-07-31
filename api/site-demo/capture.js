@@ -94,7 +94,7 @@ export default async function handler(req, res) {
     const scrape =
       scrapeResult.status === "fulfilled"
         ? scrapeResult.value
-        : { combinedText: "", pages: [], thin: true, robotsDisallowed: false };
+        : { combinedText: "", pages: [], thin: true, robotsDisallowed: false, accentColor: null };
 
     const systemPrompt = buildSystemPrompt({
       targetUrl: session.target_url,
@@ -115,6 +115,7 @@ export default async function handler(req, res) {
         scraped_pages: scrape.pages,
         content_thin: scrape.thin,
         robots_disallowed: scrape.robotsDisallowed,
+        accent_color: scrape.accentColor,
         conversation,
         updated_at: new Date().toISOString(),
       },

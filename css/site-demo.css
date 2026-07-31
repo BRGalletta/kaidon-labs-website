@@ -355,6 +355,10 @@
 }
 
 /* ---------- Floating widget ---------- */
+/* --demo-widget-accent/--demo-widget-accent-text are set inline on
+   #demo-widget by site-demo-preview.js when the target site's homepage has
+   a usable <meta name="theme-color"> — falls through to Kaidon Labs'
+   defaults below whenever that's absent or too generic to use. */
 .demo-widget-launcher {
   position: fixed;
   bottom: 24px;
@@ -364,8 +368,8 @@
   height: 60px;
   border-radius: 50%;
   border: none;
-  background: var(--color-accent);
-  color: #06231f;
+  background: var(--demo-widget-accent, var(--color-accent));
+  color: var(--demo-widget-accent-text, #06231f);
   box-shadow: var(--shadow-lg);
   display: flex;
   align-items: center;
@@ -411,8 +415,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 14px 18px;
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: var(--demo-widget-accent, var(--color-primary));
+  color: var(--demo-widget-accent-text, var(--color-text-inverse));
   font-weight: 600;
   font-size: 0.95rem;
 }
@@ -420,7 +424,7 @@
 .demo-widget-close {
   background: none;
   border: none;
-  color: var(--color-text-inverse);
+  color: var(--demo-widget-accent-text, var(--color-text-inverse));
   font-size: 1.3rem;
   line-height: 1;
   cursor: pointer;
@@ -468,8 +472,8 @@
 
 .demo-widget-panel .chat-bubble.user {
   align-self: flex-end;
-  background: var(--color-primary);
-  color: var(--color-text-inverse);
+  background: var(--demo-widget-accent, var(--color-primary));
+  color: var(--demo-widget-accent-text, var(--color-text-inverse));
   border-bottom-right-radius: 4px;
 }
 
@@ -533,7 +537,7 @@
 }
 
 .demo-widget-panel .chat-input-row input:focus {
-  outline: 2px solid var(--color-accent);
+  outline: 2px solid var(--demo-widget-accent, var(--color-accent));
   outline-offset: 1px;
 }
 

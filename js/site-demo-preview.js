@@ -43,6 +43,35 @@
     }
   }
 
+  // Relative luminance (WCAG formula) decides whether the accent color
+  // needs light or dark text on top of it for readable contrast.
+  function relativeLuminance(hex) {
+    var m = /^#([0-9a-f]{6})$/i.exec(hex);
+    if (!m) return null;
+    var num = parseInt(m[1], 16);
+    var r = (num >> 16) & 255;
+    var g = (num >> 8) & 255;
+    var b = num & 255;
+    function channel(c) {
+      var s = c / 255;
+      return s <= 0.03928 ? s / 12.92 : Math.pow((s + 0.055) / 1.055, 2.4);
+    }
+    return 0.2126 * channel(r) + 0.7152 * channel(g) + 0.0722 * channel(b);
+  }
+
+  // Applies the target site's brand color to the widget (launcher, header,
+  // outgoing chat bubbles) when one was found on its homepage — see
+  // _scrape.js for how accent_color is extracted/validated. Sets the CSS
+  // custom properties that site-demo.css's widget rules read, falling back
+  // to Kaidon Labs' own colors whenever this is never called.
+  function applyBrandColor(hex) {
+    if (!hex) return;
+    var luminance = relativeLuminance(hex);
+    if (luminance === null) return;
+    demoWidget.style.setProperty("--demo-widget-accent", hex);
+    demoWidget.style.setProperty("--demo-widget-accent-text", luminance > 0.5 ? "#0b1220" : "#ffffff");
+  }
+
   function showError(message) {
     if (pollTimer) clearTimeout(pollTimer);
     loadingState.hidden = true;
@@ -76,6 +105,7 @@
     if (disclaimerDomain && data.target_url) {
       disclaimerDomain.textContent = hostnameFor(data.target_url);
     }
+    applyBrandColor(data.accent_color);
     loadingState.hidden = true;
     backdropImage.src = data.screenshot_url;
     backdropWrap.hidden = false;

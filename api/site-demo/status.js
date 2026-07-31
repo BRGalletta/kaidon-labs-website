@@ -33,6 +33,7 @@ export default async function handler(req, res) {
         target_url: session.target_url,
         screenshot_url: session.screenshot_url,
         message: opener?.message || "Hi! Ask me anything about this business.",
+        accent_color: session.accent_color || null,
       });
       return;
     }

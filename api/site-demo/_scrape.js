@@ -23,8 +23,56 @@ const THIN_CONTENT_THRESHOLD = 500;
 const PAGE_FETCH_TIMEOUT_MS = 8000;
 const ROBOTS_FETCH_TIMEOUT_MS = 5000;
 
+// Parses a CSS color into {r,g,b} — only hex and rgb()/rgba() forms, which
+// covers the overwhelming majority of real-world theme-color values. Named
+// CSS colors ("white", "steelblue") are deliberately not resolved: there's
+// no color-name table already in this codebase, and adding one just for
+// this is more than the feature needs — a site using a named theme-color
+// just doesn't get a custom widget color, same as one with no tag at all.
+function parseCssColor(value) {
+  if (!value) return null;
+  const v = value.trim();
+  const hexMatch = v.match(/^#([0-9a-f]{3}|[0-9a-f]{6})$/i);
+  if (hexMatch) {
+    let hex = hexMatch[1];
+    if (hex.length === 3) hex = hex.split("").map((c) => c + c).join("");
+    const num = parseInt(hex, 16);
+    return { r: (num >> 16) & 255, g: (num >> 8) & 255, b: num & 255 };
+  }
+  const rgbMatch = v.match(/^rgba?\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)/i);
+  if (rgbMatch) {
+    return { r: Number(rgbMatch[1]), g: Number(rgbMatch[2]), b: Number(rgbMatch[3]) };
+  }
+  return null;
+}
+
+// Rejects near-white, near-black, and low-saturation (grayish) colors —
+// technically valid theme-colors, but not something that reads as "this
+// business's brand color" on the widget. Falls back to Kaidon Labs' default
+// scheme in these cases, same as when the tag is missing entirely.
+function isUsableBrandColor({ r, g, b }) {
+  const max = Math.max(r, g, b);
+  const min = Math.min(r, g, b);
+  if (min >= 220) return false; // near-white
+  if (max <= 25) return false; // near-black
+  if (max - min < 20) return false; // low-chroma / grayish
+  return true;
+}
+
+function toHex({ r, g, b }) {
+  return "#" + [r, g, b].map((c) => c.toString(16).padStart(2, "0")).join("");
+}
+
 function extractTextFromHtml(html) {
   const { document } = parseHTML(html);
+
+  // Read before script/style/nav/footer get stripped below — theme-color
+  // lives in <head>, but grab it up front for clarity rather than relying
+  // on it surviving the removal pass.
+  const themeColorContent = document.querySelector('meta[name="theme-color"]')?.getAttribute("content");
+  const themeColorRgb = parseCssColor(themeColorContent);
+  const accentColor = themeColorRgb && isUsableBrandColor(themeColorRgb) ? toHex(themeColorRgb) : null;
+
   for (const el of [...document.querySelectorAll("script, style, nav, footer, noscript, svg, iframe")]) {
     el.remove();
   }
@@ -32,7 +80,7 @@ function extractTextFromHtml(html) {
   const metaDescription =
     document.querySelector('meta[name="description"]')?.getAttribute("content")?.trim() || "";
   const bodyText = (document.body?.textContent || "").replace(/\s+/g, " ").trim();
-  return { title, metaDescription, text: bodyText };
+  return { title, metaDescription, text: bodyText, accentColor };
 }
 
 // Same-origin links, one path segment deep, whose href or link text matches
@@ -115,11 +163,17 @@ async function checkRobotsAllowsHomepage(targetUrl) {
   }
 }
 
-// Returns { combinedText, pages: [{url, title}], thin, robotsDisallowed }.
-// Never throws for a normal degraded case (unreachable homepage, thin
-// content, robots-disallowed) — those all resolve to a valid-but-limited
-// result so capture.js can still mark the session "ready" with a screenshot
-// even when scraping came back weak. Only a truly unexpected error escapes.
+// Returns { combinedText, pages: [{url, title}], thin, robotsDisallowed,
+// accentColor }. accentColor is the target's <meta name="theme-color">, as
+// a "#rrggbb" hex string, when present and not a generic near-white/
+// near-black/grayish value — null otherwise, in which case the widget just
+// keeps Kaidon Labs' default colors. Extracted from head metadata, so
+// (like title/metaDescription) it's returned even when robots.txt disallows
+// body-text scraping. Never throws for a normal degraded case (unreachable
+// homepage, thin content, robots-disallowed) — those all resolve to a
+// valid-but-limited result so capture.js can still mark the session "ready"
+// with a screenshot even when scraping came back weak. Only a truly
+// unexpected error escapes.
 export async function scrapeSite(targetUrl) {
   const robotsAllowed = await checkRobotsAllowsHomepage(targetUrl);
 
@@ -128,10 +182,10 @@ export async function scrapeSite(targetUrl) {
     const res = await fetchWithSsrfProtection(targetUrl, { timeoutMs: PAGE_FETCH_TIMEOUT_MS });
     homepageHtml = await res.text();
   } catch {
-    return { combinedText: "", pages: [], thin: true, robotsDisallowed: !robotsAllowed };
+    return { combinedText: "", pages: [], thin: true, robotsDisallowed: !robotsAllowed, accentColor: null };
   }
 
-  const { title, metaDescription, text } = extractTextFromHtml(homepageHtml);
+  const { title, metaDescription, text, accentColor } = extractTextFromHtml(homepageHtml);
   const pages = [{ url: targetUrl, title }];
 
   if (!robotsAllowed) {
@@ -139,7 +193,7 @@ export async function scrapeSite(targetUrl) {
     // us not to crawl it — the screenshot still happens regardless (a
     // one-off visual capture is a different act than retaining body text).
     const combinedText = [title, metaDescription].filter(Boolean).join(" — ").slice(0, MAX_TOTAL_CHARS);
-    return { combinedText, pages, thin: true, robotsDisallowed: true };
+    return { combinedText, pages, thin: true, robotsDisallowed: true, accentColor };
   }
 
   let combinedText = text;
@@ -165,5 +219,5 @@ export async function scrapeSite(targetUrl) {
   combinedText = combinedText.trim().slice(0, MAX_TOTAL_CHARS);
   const thin = combinedText.length < THIN_CONTENT_THRESHOLD;
 
-  return { combinedText, pages, thin, robotsDisallowed: false };
+  return { combinedText, pages, thin, robotsDisallowed: false, accentColor };
 }

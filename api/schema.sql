@@ -54,6 +54,7 @@ create table site_demo_sessions (
   scraped_pages jsonb default '[]'::jsonb,          -- [{url, title}] of homepage + key pages actually fetched
   content_thin boolean not null default false,       -- true if scraped content came back under the thin-content threshold
   robots_disallowed boolean not null default false,  -- true if the target's robots.txt disallowed crawling
+  accent_color text,                                -- "#rrggbb" from the target's <meta name="theme-color">, when usable; null -> widget uses Kaidon Labs' default colors
   error_message text,                               -- populated on status='failed', shown to the visitor
   conversation jsonb not null default '[]'::jsonb   -- [{role, message, timestamp}]
 );
