@@ -20,17 +20,37 @@
     el.className = "form-status show " + type;
   }
 
+  // Lets people type "yourbusiness.com" instead of requiring the full
+  // "https://yourbusiness.com" — the field is plain text (not type="url")
+  // specifically so the browser's native URL validation doesn't force a
+  // scheme before this normalization ever runs.
+  function normalizeUrl(input) {
+    var trimmed = input.trim();
+    if (trimmed && !/^https?:\/\//i.test(trimmed)) {
+      trimmed = "https://" + trimmed;
+    }
+    return trimmed;
+  }
+
+  function looksLikeAUrl(url) {
+    try {
+      return new URL(url).hostname.indexOf(".") !== -1;
+    } catch (e) {
+      return false;
+    }
+  }
+
   gateForm.addEventListener("submit", function (event) {
     event.preventDefault();
 
-    var targetUrl = document.getElementById("gate-url").value.trim();
+    var targetUrl = normalizeUrl(document.getElementById("gate-url").value);
     var name = document.getElementById("gate-name").value.trim();
     var email = document.getElementById("gate-email").value.trim();
     var company = document.getElementById("gate-company").value.trim();
     var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!targetUrl) {
-      showStatus(gateStatus, "Please enter your website URL.", "error");
+    if (!targetUrl || !looksLikeAUrl(targetUrl)) {
+      showStatus(gateStatus, "Please enter your website URL (e.g. yourbusiness.com).", "error");
       return;
     }
     if (!name || !emailPattern.test(email)) {

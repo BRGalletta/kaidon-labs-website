@@ -12,11 +12,12 @@ import { supabaseFetch } from "../_lib/supabase.js";
 import { assertSafeUrl, SsrfValidationError } from "./_ssrf.js";
 
 const DAILY_CAP_PER_EMAIL = 3;
-// Lower than the email cap on purpose: email is self-reported and trivially
-// spoofable per-submission, but this feature has real per-use provider cost
-// (a screenshot API call), unlike audit-chat which only ever costs a Claude
-// call — so IP gets its own, tighter dimension.
-const DAILY_CAP_PER_IP = 5;
+// Email is self-reported and trivially spoofable per-submission, but this
+// feature has real per-use provider cost (a screenshot API call), unlike
+// audit-chat which only ever costs a Claude call — so IP gets its own
+// dimension. Raised from an initial 5 to give room for testing during
+// launch; worth dialing back down once real traffic starts.
+const DAILY_CAP_PER_IP = 20;
 
 function getClientIp(req) {
   const forwarded = req.headers["x-forwarded-for"];

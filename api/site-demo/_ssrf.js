@@ -140,9 +140,21 @@ export async function assertSafeUrl(rawUrl) {
     throw new SsrfValidationError("Please enter a valid website URL.");
   }
 
+  // The frontend already normalizes a schemeless input like "example.com"
+  // to "https://example.com" before this is ever called, but the API
+  // shouldn't rely on that alone — normalize here too, defense-in-depth.
+  // Only prepend when there's no scheme at all (not just a non-http one) —
+  // "ftp://x" or "javascript:x" should fall through to the protocol check
+  // below and get a clear "only http/https" rejection, not get mangled by
+  // having "https://" glued onto the front of an already-schemed string.
+  let candidate = rawUrl.trim();
+  if (candidate && !/^[a-z][a-z0-9+.-]*:/i.test(candidate)) {
+    candidate = `https://${candidate}`;
+  }
+
   let parsed;
   try {
-    parsed = new URL(rawUrl.trim());
+    parsed = new URL(candidate);
   } catch {
     throw new SsrfValidationError("That doesn't look like a valid URL.");
   }
