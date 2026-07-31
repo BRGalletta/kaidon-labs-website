@@ -41,6 +41,7 @@ export async function supabaseStorageUpload(bucket, objectPath, bytes, contentTy
   const res = await fetch(`${SUPABASE_URL}/storage/v1/object/${bucket}/${objectPath}`, {
     method: "POST",
     headers: {
+      "apikey": SERVICE_ROLE_KEY,
       "Authorization": `Bearer ${SERVICE_ROLE_KEY}`,
       "Content-Type": contentType,
       "x-upsert": "true",
