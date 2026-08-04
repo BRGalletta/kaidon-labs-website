@@ -1,10 +1,10 @@
 ---
-title: "A Practical Framework for Prioritizing AI Use Cases"
-date: "2026-07-31T10:06:07.207Z"
-slug: "a-practical-framework-for-prioritizing-ai-use-cases"
-excerpt: "A simple way to turn a chaotic backlog of AI ideas into an ordered, defensible plan."
-status: pending
-publishAt: "2026-08-01T10:06:07.207Z"
+title: A Practical Framework for Prioritizing AI Use Cases
+date: '2026-07-31T10:06:07.207Z'
+slug: a-practical-framework-for-prioritizing-ai-use-cases
+excerpt: >-
+  A simple way to turn a chaotic backlog of AI ideas into an ordered, defensible
+  plan.
 ---
 
 Most businesses don't have a shortage of AI ideas. They have too many. Someone in sales wants a chatbot. Someone in ops wants automated data entry. Someone in leadership read an article and now wants "an AI strategy." Every one of these ideas might be reasonable in isolation, but a business can only actually build and support a handful of them at once. The hard part isn't finding AI use cases — it's deciding which ones to do first.

@@ -1,10 +1,10 @@
 ---
-title: "What 'AI-Ready' Actually Means for a Small Business"
-date: "2026-08-01T10:05:14.260Z"
-slug: "what-ai-ready-actually-means-for-a-small-business"
-excerpt: "AI-readiness has less to do with your tech stack and more to do with a clear problem, honest data, and someone willing to own the outcome."
-status: pending
-publishAt: "2026-08-02T10:05:14.260Z"
+title: What 'AI-Ready' Actually Means for a Small Business
+date: '2026-08-01T10:05:14.260Z'
+slug: what-ai-ready-actually-means-for-a-small-business
+excerpt: >-
+  AI-readiness has less to do with your tech stack and more to do with a clear
+  problem, honest data, and someone willing to own the outcome.
 ---
 
 "AI-ready" gets thrown around a lot — in vendor pitches, conference talks, posts promising that businesses who get there first will win and everyone else will fall behind. It's a phrase that's been stretched to mean almost nothing, and for a small business trying to figure out whether it's actually ready to adopt AI, that vagueness causes more anxiety than clarity.
