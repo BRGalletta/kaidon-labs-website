@@ -1,10 +1,11 @@
 ---
-title: "Common Pitfalls When Connecting AI Tools to Your CRM"
-date: "2026-08-04T10:06:14.184Z"
-slug: "common-pitfalls-when-connecting-ai-tools-to-your-crm"
-excerpt: "The CRM integration often gets treated as plumbing, but a handful of predictable mistakes there can undermine an otherwise well-designed AI project."
-status: pending
-publishAt: "2026-08-05T10:06:14.184Z"
+title: Common Pitfalls When Connecting AI Tools to Your CRM
+date: '2026-08-04T10:06:14.184Z'
+slug: common-pitfalls-when-connecting-ai-tools-to-your-crm
+excerpt: >-
+  The CRM integration often gets treated as plumbing, but a handful of
+  predictable mistakes there can undermine an otherwise well-designed AI
+  project.
 ---
 
 Connecting an AI tool to your CRM sounds like the easy part. The AI itself — the model, the prompts, the logic — gets most of the attention during planning. The CRM integration feels like plumbing: point the tool at the right API, map a few fields, and move on. In practice, this is where a surprising number of otherwise well-planned AI projects run into trouble, and the problems aren't exotic — they're the same handful of pitfalls, showing up in slightly different clothes each time.
