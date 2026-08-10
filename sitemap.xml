@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kaidonlabs.tech/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/ai-audit/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/site-demo/</loc>
-    <lastmod>2026-08-01</lastmod>
+    <lastmod>2026-08-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/</loc>
-    <lastmod>2026-08-04</lastmod>
+    <lastmod>2026-08-07</lastmod>
+  </url>
+  <url>
+    <loc>https://kaidonlabs.tech/blog/how-to-write-an-effective-ai-project-brief/</loc>
+    <lastmod>2026-08-07</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/common-pitfalls-when-connecting-ai-tools-to-your-crm/</loc>

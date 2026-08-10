@@ -1,10 +1,10 @@
 ---
-title: "How to Write an Effective AI Project Brief"
-date: "2026-08-07T10:06:03.220Z"
-slug: "how-to-write-an-effective-ai-project-brief"
-excerpt: "A clear, honest project brief is the single artifact most likely to keep an AI project on track from kickoff to launch."
-status: pending
-publishAt: "2026-08-08T10:06:03.220Z"
+title: How to Write an Effective AI Project Brief
+date: '2026-08-07T10:06:03.220Z'
+slug: how-to-write-an-effective-ai-project-brief
+excerpt: >-
+  A clear, honest project brief is the single artifact most likely to keep an AI
+  project on track from kickoff to launch.
 ---
 
 Most AI projects don't fail because the technology doesn't work. They fail because nobody wrote down, clearly and specifically, what "done" was supposed to look like. A vague brief — "we want an AI chatbot" or "can you add some automation to our workflow" — sends a consulting team down a path where they're guessing at your priorities instead of building toward them. By the time everyone realizes the guess was wrong, you've spent budget and goodwill you can't easily get back.
