@@ -1,10 +1,10 @@
 ---
-title: "AI Consulting Red Flags: What to Watch For"
-date: "2026-08-10T10:05:55.945Z"
-slug: "ai-consulting-red-flags-what-to-watch-for"
-excerpt: "The warning signs of a bad-fit AI consulting partner almost always show up before you've signed anything — if you know where to look."
-status: pending
-publishAt: "2026-08-11T10:05:55.945Z"
+title: 'AI Consulting Red Flags: What to Watch For'
+date: '2026-08-10T10:05:55.945Z'
+slug: ai-consulting-red-flags-what-to-watch-for
+excerpt: >-
+  The warning signs of a bad-fit AI consulting partner almost always show up
+  before you've signed anything — if you know where to look.
 ---
 
 Hiring an AI consultant is a leap of faith in a way hiring an accountant usually isn't. Most business owners have a rough sense of what good accounting looks like. Far fewer have a feel for what a well-run AI project looks like, which makes it easy to end up mid-engagement with a partner who's long on buzzwords and short on delivery. The good news: the warning signs tend to show up early, before you've spent real money — if you know what to look for.
