@@ -1,10 +1,11 @@
 ---
-title: "Chatbots for Internal Teams vs. Customer-Facing Chatbots"
-date: "2026-08-13T10:08:18.763Z"
-slug: "chatbots-for-internal-teams-vs-customer-facing-chatbots"
-excerpt: "Internal and customer-facing chatbots solve different problems with different stakes — knowing which one you're building should shape every scoping decision you make."
-status: pending
-publishAt: "2026-08-14T10:08:18.763Z"
+title: Chatbots for Internal Teams vs. Customer-Facing Chatbots
+date: '2026-08-13T10:08:18.763Z'
+slug: chatbots-for-internal-teams-vs-customer-facing-chatbots
+excerpt: >-
+  Internal and customer-facing chatbots solve different problems with different
+  stakes — knowing which one you're building should shape every scoping decision
+  you make.
 ---
 
 Most conversations about AI chatbots default to one picture: a widget in the corner of a website, answering customer questions at 2 a.m. That's a real and valuable use case, but it's only half the story. Some of the highest-leverage chatbot deployments we see never face a customer at all — they live inside the company, helping employees find answers, complete tasks, and stop bugging their coworkers with the same five questions every week.
