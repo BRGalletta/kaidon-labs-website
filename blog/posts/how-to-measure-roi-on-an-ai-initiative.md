@@ -1,10 +1,10 @@
 ---
-title: "How to Measure ROI on an AI Initiative"
-date: "2026-08-16T10:05:58.310Z"
-slug: "how-to-measure-roi-on-an-ai-initiative"
-excerpt: "AI ROI rarely shows up as one clean number — here's how to define, baseline, and track it so the answer holds up."
-status: pending
-publishAt: "2026-08-17T10:05:58.310Z"
+title: How to Measure ROI on an AI Initiative
+date: '2026-08-16T10:05:58.310Z'
+slug: how-to-measure-roi-on-an-ai-initiative
+excerpt: >-
+  AI ROI rarely shows up as one clean number — here's how to define, baseline,
+  and track it so the answer holds up.
 ---
 
 Every AI initiative eventually runs into the same question from someone holding the budget: is this actually working? It's a fair question, and it's harder to answer than it sounds, because AI projects rarely produce a single, obvious number the way a marketing campaign might produce a conversion rate. Measuring ROI on an AI initiative takes some deliberate setup — ideally before the project starts, not after someone asks.
