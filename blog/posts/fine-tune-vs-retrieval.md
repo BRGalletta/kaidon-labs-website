@@ -1,10 +1,11 @@
 ---
-title: "Should You Fine-Tune a Model or Use Retrieval Instead?"
-date: "2026-08-19T10:04:30.501Z"
-slug: "fine-tune-vs-retrieval"
-excerpt: "A practical look at when fine-tuning a model makes sense versus when retrieval-augmented generation is the faster, cheaper, more trustworthy choice."
-status: pending
-publishAt: "2026-08-20T10:04:30.501Z"
+title: Should You Fine-Tune a Model or Use Retrieval Instead?
+date: '2026-08-19T10:04:30.501Z'
+slug: fine-tune-vs-retrieval
+excerpt: >-
+  A practical look at when fine-tuning a model makes sense versus when
+  retrieval-augmented generation is the faster, cheaper, more trustworthy
+  choice.
 ---
 
 If you've spent any time researching how to make an AI model "know" your business, you've probably run into two competing terms: fine-tuning and retrieval-augmented generation (RAG). Both promise to make a general-purpose language model behave like it understands your company. Both are frequently misapplied. And the choice between them is one of the most consequential technical decisions in an AI project, because it affects cost, maintenance burden, and how quickly you can trust the output.
