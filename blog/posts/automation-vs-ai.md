@@ -1,10 +1,11 @@
 ---
-title: "The Difference Between Automation and AI (and Why It Matters)"
-date: "2026-08-28T10:05:01.733Z"
-slug: "automation-vs-ai"
-excerpt: "Automation follows fixed rules; AI makes judgment calls on messy input — knowing which one your project actually needs changes how you plan, budget, and evaluate success."
-status: pending
-publishAt: "2026-08-29T10:05:01.733Z"
+title: The Difference Between Automation and AI (and Why It Matters)
+date: '2026-08-28T10:05:01.733Z'
+slug: automation-vs-ai
+excerpt: >-
+  Automation follows fixed rules; AI makes judgment calls on messy input —
+  knowing which one your project actually needs changes how you plan, budget,
+  and evaluate success.
 ---
 
 Ask five people to define "AI" and you'll get five different answers — and at least a couple of them will actually be describing automation. It's an easy mix-up. Both promise to save time. Both get pitched as "letting the computer handle it." Both show up in the same vendor demos, sometimes in the same sentence. But they're different tools built for different kinds of problems, and knowing which one you actually need is often the difference between a project that pays for itself and one that quietly stalls out six months in.
