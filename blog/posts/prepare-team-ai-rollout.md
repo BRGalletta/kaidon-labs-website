@@ -1,10 +1,10 @@
 ---
-title: "How to Prepare Your Team for an AI Rollout"
-date: "2026-08-31T10:06:22.253Z"
-slug: "prepare-team-ai-rollout"
-excerpt: "The technology is only half the project — here's how to get your team ready to actually trust and use a new AI tool."
-status: pending
-publishAt: "2026-09-01T10:06:22.253Z"
+title: How to Prepare Your Team for an AI Rollout
+date: '2026-08-31T10:06:22.253Z'
+slug: prepare-team-ai-rollout
+excerpt: >-
+  The technology is only half the project — here's how to get your team ready to
+  actually trust and use a new AI tool.
 ---
 
 Most AI rollouts don't fail because the technology doesn't work. They fail because the people who were supposed to use it never really adopted it. The model performs fine in testing, the integration is solid, and six months later half the team is still doing things the old way, or worse, quietly working around the new tool because nobody explained why it mattered or how it fit into their day.

@@ -1,10 +1,10 @@
 ---
-title: "Choosing the Right Scope for Your First AI Project"
-date: "2026-09-01T10:05:46.122Z"
-slug: "choosing-the-right-scope-for-your-first-ai-project"
-excerpt: "The single biggest factor in a first AI project's success isn't the technology you pick — it's how narrowly you scope the problem."
-status: pending
-publishAt: "2026-09-02T10:05:46.122Z"
+title: Choosing the Right Scope for Your First AI Project
+date: '2026-09-01T10:05:46.122Z'
+slug: choosing-the-right-scope-for-your-first-ai-project
+excerpt: >-
+  The single biggest factor in a first AI project's success isn't the technology
+  you pick — it's how narrowly you scope the problem.
 ---
 
 Most AI projects don't fail because the technology doesn't work. They fail because the scope was wrong from the start — too ambitious, too vague, or trying to solve five problems at once instead of one. If you're planning your first AI initiative, the single highest-leverage decision you'll make isn't which model to use or which vendor to hire. It's how narrowly you define what "done" looks like.
