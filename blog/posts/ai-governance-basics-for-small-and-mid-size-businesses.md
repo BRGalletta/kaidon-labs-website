@@ -1,10 +1,10 @@
 ---
-title: "AI Governance Basics for Small and Mid-Size Businesses"
-date: "2026-09-04T10:07:54.962Z"
-slug: "ai-governance-basics-for-small-and-mid-size-businesses"
-excerpt: "AI governance doesn't require a compliance department — just four clear answers per tool, written down before you need them."
-status: pending
-publishAt: "2026-09-05T10:07:54.962Z"
+title: AI Governance Basics for Small and Mid-Size Businesses
+date: '2026-09-04T10:07:54.962Z'
+slug: ai-governance-basics-for-small-and-mid-size-businesses
+excerpt: >-
+  AI governance doesn't require a compliance department — just four clear
+  answers per tool, written down before you need them.
 ---
 
 "Governance" sounds like a word for enterprises with compliance departments and a general counsel on speed dial. For a small or mid-size business, it can sound like overkill — one more thing to set up before you're even sure the AI project is going to work. But governance, at this scale, isn't about policy binders or committees. It's a small set of decisions made early, so that six months from now nobody is scrambling to answer a question that should have been settled on day one. Done right, it takes an afternoon, not a quarter.
