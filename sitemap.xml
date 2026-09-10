@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kaidonlabs.tech/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/ai-audit/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/site-demo/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-10</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/</loc>
-    <lastmod>2026-09-04</lastmod>
+    <lastmod>2026-09-07</lastmod>
+  </url>
+  <url>
+    <loc>https://kaidonlabs.tech/blog/how-ai-integration-can-reduce-manual-data-entry/</loc>
+    <lastmod>2026-09-07</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/ai-governance-basics-for-small-and-mid-size-businesses/</loc>

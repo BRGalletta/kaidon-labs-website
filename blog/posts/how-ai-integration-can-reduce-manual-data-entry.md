@@ -1,10 +1,10 @@
 ---
-title: "How AI Integration Can Reduce Manual Data Entry"
-date: "2026-09-07T10:05:43.688Z"
-slug: "how-ai-integration-can-reduce-manual-data-entry"
-excerpt: "Manual data entry is one of the clearest, lowest-risk places to start with AI — here's what that actually looks like in practice."
-status: pending
-publishAt: "2026-09-08T10:05:43.688Z"
+title: How AI Integration Can Reduce Manual Data Entry
+date: '2026-09-07T10:05:43.688Z'
+slug: how-ai-integration-can-reduce-manual-data-entry
+excerpt: >-
+  Manual data entry is one of the clearest, lowest-risk places to start with AI
+  — here's what that actually looks like in practice.
 ---
 
 Manual data entry is one of those problems that rarely shows up on a strategic planning agenda, but eats an enormous amount of time anyway. Someone retypes an order from an email into a spreadsheet. Someone copies a customer's details from a signup form into the CRM. Someone reconciles two systems that were never built to talk to each other, by hand, every week. None of it is hard work. All of it is slow, repetitive, and quietly expensive.
