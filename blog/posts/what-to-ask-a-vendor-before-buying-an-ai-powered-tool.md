@@ -1,10 +1,10 @@
 ---
-title: "What to Ask a Vendor Before Buying an 'AI-Powered' Tool"
-date: "2026-09-10T10:05:09.581Z"
-slug: "what-to-ask-a-vendor-before-buying-an-ai-powered-tool"
-excerpt: "A practical list of questions that reveal what an 'AI-powered' product actually does, what it costs, and where the risks hide."
-status: pending
-publishAt: "2026-09-11T10:05:09.581Z"
+title: What to Ask a Vendor Before Buying an 'AI-Powered' Tool
+date: '2026-09-10T10:05:09.581Z'
+slug: what-to-ask-a-vendor-before-buying-an-ai-powered-tool
+excerpt: >-
+  A practical list of questions that reveal what an 'AI-powered' product
+  actually does, what it costs, and where the risks hide.
 ---
 
 Every software vendor's pitch deck has an AI slide now. Chatbots, "smart" recommendations, predictive this, generative that — it's become a default feature label rather than a meaningful description of what a product does. That's not necessarily a problem; some of these tools genuinely use AI well and deliver real value. But "AI-powered" on its own tells you almost nothing about whether a tool fits your business, what it will actually cost to run, or what happens when it gets something wrong.
