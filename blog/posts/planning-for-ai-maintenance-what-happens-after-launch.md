@@ -1,10 +1,10 @@
 ---
-title: "Planning for AI Maintenance: What Happens After Launch"
-date: "2026-09-13T10:04:09.028Z"
-slug: "planning-for-ai-maintenance-what-happens-after-launch"
-excerpt: "Launch day is the midpoint of an AI project, not the end — here's how to plan for the upkeep that keeps it working."
-status: pending
-publishAt: "2026-09-14T10:04:09.028Z"
+title: 'Planning for AI Maintenance: What Happens After Launch'
+date: '2026-09-13T10:04:09.028Z'
+slug: planning-for-ai-maintenance-what-happens-after-launch
+excerpt: >-
+  Launch day is the midpoint of an AI project, not the end — here's how to plan
+  for the upkeep that keeps it working.
 ---
 
 Most conversations about AI projects focus on the launch: picking the right use case, choosing a model or vendor, getting the integration built, watching the demo go well. Then the project ships, the team moves on to the next priority, and the AI tool quietly becomes part of the furniture. That last part is where a surprising number of AI initiatives start to quietly decay — not because the technology failed, but because nobody planned for what comes after "it's live."
