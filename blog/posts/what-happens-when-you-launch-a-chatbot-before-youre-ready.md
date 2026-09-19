@@ -1,10 +1,10 @@
 ---
-title: "What Happens When You Launch a Chatbot Before You're Ready"
-date: "2026-09-16T10:05:26.878Z"
-slug: "what-happens-when-you-launch-a-chatbot-before-youre-ready"
-excerpt: "The readiness checklist gets all the attention, but the failure modes that show up when you skip it are just as instructive."
-status: pending
-publishAt: "2026-09-17T10:05:26.878Z"
+title: What Happens When You Launch a Chatbot Before You're Ready
+date: '2026-09-16T10:05:26.878Z'
+slug: what-happens-when-you-launch-a-chatbot-before-youre-ready
+excerpt: >-
+  The readiness checklist gets all the attention, but the failure modes that
+  show up when you skip it are just as instructive.
 ---
 
 Most advice about AI chatbots focuses on the upside: faster response times, fewer repetitive tickets, a team freed up for higher-value work. That's real, and it's worth pursuing. But it's worth spending equal time on the other side of the question — what actually goes wrong when a business launches a chatbot before the groundwork is in place. The failure modes are predictable, and every one of them is avoidable.
