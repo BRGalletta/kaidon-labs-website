@@ -1,10 +1,10 @@
 ---
-title: "When Your Off-the-Shelf AI Tool Stops Being Enough"
-date: "2026-09-19T10:03:47.320Z"
-slug: "when-your-off-the-shelf-ai-tool-stops-being-enough"
-excerpt: "Build vs. buy isn't a one-time decision — here's how to plan for the day your off-the-shelf AI tool no longer fits, without getting locked in."
-status: pending
-publishAt: "2026-09-20T10:03:47.320Z"
+title: When Your Off-the-Shelf AI Tool Stops Being Enough
+date: '2026-09-19T10:03:47.320Z'
+slug: when-your-off-the-shelf-ai-tool-stops-being-enough
+excerpt: >-
+  Build vs. buy isn't a one-time decision — here's how to plan for the day your
+  off-the-shelf AI tool no longer fits, without getting locked in.
 ---
 
 Most build-vs-buy advice treats the decision like a single fork in the road: pick a lane, live with it. In practice, it's rarely that clean. Businesses that start with an off-the-shelf AI tool often find, a year or two in, that the tool which used to fit now feels tight around the edges — and the real question stops being "build or buy" and becomes "how do we outgrow this without starting over."
