@@ -2,19 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://kaidonlabs.tech/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-25</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/ai-audit/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-25</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/site-demo/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-25</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/</loc>
-    <lastmod>2026-09-19</lastmod>
+    <lastmod>2026-09-22</lastmod>
+  </url>
+  <url>
+    <loc>https://kaidonlabs.tech/blog/evaluating-an-llm-pitch-a-founders-checklist/</loc>
+    <lastmod>2026-09-22</lastmod>
   </url>
   <url>
     <loc>https://kaidonlabs.tech/blog/when-your-off-the-shelf-ai-tool-stops-being-enough/</loc>

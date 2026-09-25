@@ -1,10 +1,10 @@
 ---
-title: "Evaluating an LLM Pitch: A Founder's Checklist"
-date: "2026-09-22T10:10:12.958Z"
-slug: "evaluating-an-llm-pitch-a-founders-checklist"
-excerpt: "Five plain-language questions that help a non-technical founder tell a solid AI project pitch from a risky one."
-status: pending
-publishAt: "2026-09-23T10:10:12.958Z"
+title: 'Evaluating an LLM Pitch: A Founder''s Checklist'
+date: '2026-09-22T10:10:12.958Z'
+slug: evaluating-an-llm-pitch-a-founders-checklist
+excerpt: >-
+  Five plain-language questions that help a non-technical founder tell a solid
+  AI project pitch from a risky one.
 ---
 
 Someone on your team — or a vendor, or an agency, or a hire eager to make an impression — is going to walk into a room and pitch you on "adding AI" to something. It'll be framed as obviously good: faster, smarter, more automated. As a non-technical founder, your job isn't to evaluate the model. It's to evaluate the pitch. Here's how to do that without pretending to know more about machine learning than you do.
