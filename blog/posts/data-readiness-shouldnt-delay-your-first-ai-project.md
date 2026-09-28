@@ -1,10 +1,11 @@
 ---
-title: "Why 'Getting Your Data Ready' Shouldn't Delay Your First AI Project"
-date: "2026-09-25T10:14:48.192Z"
-slug: "data-readiness-shouldnt-delay-your-first-ai-project"
-excerpt: "Data readiness isn't a company-wide checkbox — scoping it to your actual first use case is what gets AI projects off the ground instead of stalled indefinitely."
-status: pending
-publishAt: "2026-09-26T10:14:48.192Z"
+title: Why 'Getting Your Data Ready' Shouldn't Delay Your First AI Project
+date: '2026-09-25T10:14:48.192Z'
+slug: data-readiness-shouldnt-delay-your-first-ai-project
+excerpt: >-
+  Data readiness isn't a company-wide checkbox — scoping it to your actual first
+  use case is what gets AI projects off the ground instead of stalled
+  indefinitely.
 ---
 
 Ask ten businesses why their AI project stalled before it started, and a good number will say some version of "our data wasn't ready yet." Sometimes that's true. Often, though, what actually happened is different: someone raised the idea of "getting the data ready" as a prerequisite, the scope of that cleanup quietly expanded to cover the entire organization, and the AI project got shelved indefinitely behind it.
