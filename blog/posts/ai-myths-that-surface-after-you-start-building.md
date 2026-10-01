@@ -1,10 +1,10 @@
 ---
-title: "The AI Myths That Surface After You've Already Started"
-date: "2026-09-28T10:13:44.088Z"
-slug: "ai-myths-that-surface-after-you-start-building"
-excerpt: "The misconceptions that trip up AI projects rarely show up before launch — they show up once the work is already underway."
-status: pending
-publishAt: "2026-09-29T10:13:44.088Z"
+title: The AI Myths That Surface After You've Already Started
+date: '2026-09-28T10:13:44.088Z'
+slug: ai-myths-that-surface-after-you-start-building
+excerpt: >-
+  The misconceptions that trip up AI projects rarely show up before launch —
+  they show up once the work is already underway.
 ---
 
 Most conversations about AI misconceptions happen before a project starts — myths about cost, complexity, or whether the technology is even real. That's useful, but it misses a second wave of misconceptions that only shows up once a project is already underway. These are quieter, less discussed, and in some ways more disruptive, because by the time they surface, a team has already committed time and budget and is reluctant to admit something isn't working the way they expected.

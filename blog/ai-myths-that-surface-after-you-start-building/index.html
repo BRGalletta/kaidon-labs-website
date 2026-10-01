@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The AI Myths That Surface After You've Already Started | Kaidon Labs Blog</title>
+  <meta name="description" content="The misconceptions that trip up AI projects rarely show up before launch — they show up once the work is already underway." />
+  <link rel="canonical" href="https://kaidonlabs.tech/blog/ai-myths-that-surface-after-you-start-building/" />
+
+  <meta property="og:title" content="The AI Myths That Surface After You've Already Started | Kaidon Labs Blog" />
+  <meta property="og:description" content="The misconceptions that trip up AI projects rarely show up before launch — they show up once the work is already underway." />
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="Kaidon Labs" />
+  <meta property="og:url" content="https://kaidonlabs.tech/blog/ai-myths-that-surface-after-you-start-building/" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="The AI Myths That Surface After You've Already Started | Kaidon Labs Blog" />
+  <meta name="twitter:description" content="The misconceptions that trip up AI projects rarely show up before launch — they show up once the work is already underway." />
+
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "The AI Myths That Surface After You've Already Started",
+  "description": "The misconceptions that trip up AI projects rarely show up before launch — they show up once the work is already underway.",
+  "datePublished": "2026-09-28T10:13:44.088Z",
+  "dateModified": "2026-09-28T10:13:44.088Z",
+  "url": "https://kaidonlabs.tech/blog/ai-myths-that-surface-after-you-start-building/",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://kaidonlabs.tech/blog/ai-myths-that-surface-after-you-start-building/"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "Kaidon Labs",
+    "url": "https://kaidonlabs.tech"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "Kaidon Labs",
+    "url": "https://kaidonlabs.tech"
+  }
+}
+  </script>
+  <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Kaidon Labs",
+      "item": "https://kaidonlabs.tech/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": "https://kaidonlabs.tech/blog/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": "The AI Myths That Surface After You've Already Started",
+      "item": "https://kaidonlabs.tech/blog/ai-myths-that-surface-after-you-start-building/"
+    }
+  ]
+}
+  </script>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2314335c'/%3E%3Ccircle cx='20' cy='22' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='44' cy='20' r='5' fill='%23ffffff'/%3E%3Ccircle cx='46' cy='44' r='6' fill='%2316b8a6'/%3E%3Ccircle cx='20' cy='42' r='4' fill='%23ffffff'/%3E%3Cline x1='20' y1='22' x2='44' y2='20' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='22' x2='20' y2='42' stroke='%23ffffff' stroke-width='2'/%3E%3Cline x1='20' y1='42' x2='46' y2='44' stroke='%2316b8a6' stroke-width='2'/%3E%3Cline x1='44' y1='20' x2='46' y2='44' stroke='%23ffffff' stroke-width='2'/%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'" />
+
+  <link rel="stylesheet" href="../../css/styles.css" />
+</head>
+<body>
+  <header>
+    <nav class="navbar" aria-label="Primary">
+      <div class="container">
+        <a href="../../index.html#top" class="brand" aria-label="Kaidon Labs home">
+          <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill="#14335c"/>
+    <circle cx="20" cy="22" r="6" fill="#16b8a6"/>
+    <circle cx="44" cy="20" r="5" fill="#ffffff"/>
+    <circle cx="46" cy="44" r="6" fill="#16b8a6"/>
+    <circle cx="20" cy="42" r="4" fill="#ffffff"/>
+    <line x1="20" y1="22" x2="44" y2="20" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="22" x2="20" y2="42" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="42" x2="46" y2="44" stroke="#16b8a6" stroke-width="2"/>
+    <line x1="44" y1="20" x2="46" y2="44" stroke="#ffffff" stroke-width="2"/>
+  </svg>
+          Kaidon Labs
+        </a>
+
+        <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-links">
+          <span></span><span></span><span></span>
+        </button>
+
+        <ul class="nav-links" id="nav-links">
+          <li><a href="../../index.html#ai-audit">Free AI Audit</a></li>
+          <li><a href="../../index.html#site-demo">Site Demo</a></li>
+          <li><a href="../../index.html#services">Services</a></li>
+          <li><a href="../../index.html#expertise">What We Do</a></li>
+          <li><a href="../../blog/">Blog</a></li>
+          <li><a href="../../index.html#contact">Contact</a></li>
+          <li class="nav-cta">
+            <a class="btn btn-primary btn-sm" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <main id="top">
+    <article class="post-article">
+      <a class="back-link" href="../">&larr; Back to Blog</a>
+      <p class="post-meta">September 28, 2026</p>
+      <h1>The AI Myths That Surface After You've Already Started</h1>
+      <div class="post-body">
+<p>Most conversations about AI misconceptions happen before a project starts — myths about cost, complexity, or whether the technology is even real. That&#39;s useful, but it misses a second wave of misconceptions that only shows up once a project is already underway. These are quieter, less discussed, and in some ways more disruptive, because by the time they surface, a team has already committed time and budget and is reluctant to admit something isn&#39;t working the way they expected.</p>
+<p>Here are the misconceptions that tend to appear mid-project rather than before it — and what to do instead.</p>
+<h2>&quot;We scoped this correctly, so it should just work now&quot;</h2>
+<p>Scoping a project well is necessary, but it&#39;s not the same as being finished thinking about scope. Requirements that looked stable during planning often turn out to be softer than expected once real users or real data show up. A chatbot scoped to handle &quot;billing questions&quot; runs into billing questions that are actually account-security questions in disguise. A document-processing tool scoped for &quot;standard invoices&quot; meets its first non-standard invoice in week one.</p>
+<p>None of this means the original scoping was wrong. It means scope is a living thing during the build, not a document you file away after kickoff. Teams that treat early scope creep as a signal to revisit assumptions — rather than a nuisance to push through — end up with a better final product and fewer surprises at launch.</p>
+<h2>&quot;The model will get better at our use case as it goes&quot;</h2>
+<p>There&#39;s a common assumption that an AI system quietly improves the more it&#39;s used, the way a new employee gets better with experience. Depending on the tool, that&#39;s often not true at all — many systems perform exactly as well on day one hundred as they did on day one, unless someone is deliberately feeding it corrections, better instructions, or updated reference material. Improvement isn&#39;t automatic; it&#39;s a maintenance activity someone has to own.</p>
+<p>If your plan assumes the tool will &quot;learn&quot; your business over time without anyone doing that work, it&#39;s worth naming who that person is now, before performance quietly plateaus below where you need it.</p>
+<h2>&quot;One good demo means it&#39;s ready for everyone&quot;</h2>
+<p>A polished demo, tested against a handful of friendly scenarios, is genuinely exciting — and genuinely different from production use. Real usage brings edge cases, ambiguous phrasing, adversarial inputs, and the occasional request nobody thought to test. A tool that looked flawless in a demo can stumble on its first day with real customers, not because it regressed, but because the demo never covered the full range of what people actually ask.</p>
+<p>Treating a strong demo as a milestone rather than a finish line — and deliberately testing with messier, less cooperative inputs before a wider rollout — catches most of these issues while the stakes are still low.</p>
+<h2>&quot;If it&#39;s not broken, no one needs to look at it&quot;</h2>
+<p>Once a tool is live and behaving reasonably, it&#39;s tempting to consider the project closed. But &quot;working&quot; and &quot;ignored&quot; can drift apart from each other slowly rather than all at once. A product catalog changes, a policy gets updated, a new category of question starts appearing more often — and a tool that isn&#39;t checked periodically doesn&#39;t announce that it&#39;s fallen behind. It just keeps answering confidently, with answers that are quietly less accurate than they used to be.</p>
+<p>This isn&#39;t a call for constant hovering. It&#39;s a case for a light, scheduled check — someone spot-checking outputs every so often, rather than waiting for a customer complaint to reveal that something drifted months ago.</p>
+<h2>Why this second wave matters more than the first</h2>
+<p>Pre-launch myths mostly affect whether a project gets started at all. Mid-project myths affect whether it actually delivers what it was supposed to — and they&#39;re easier to miss, because a project that&#39;s &quot;underway&quot; feels like it&#39;s already succeeding just by existing. The teams that get the most out of AI tools tend to treat launch as one checkpoint among several, not the final one, and stay a little skeptical of anything that seems to be running itself without anyone watching.</p>
+<p>If you&#39;re in the middle of a project right now and something about it feels like it&#39;s quietly drifting off track, that&#39;s a useful moment to get a second opinion. <a href="https://calendly.com/brian-kaidonlabs/30min">Book a free 30-minute call</a> with Kaidon Labs, or <a href="/#contact">reach out through our contact form</a> — sometimes the most valuable input is just someone else looking at what&#39;s already built.</p>
+
+      </div>
+
+      <div class="post-cta">
+        <h3>Curious how this applies to your business?</h3>
+        <p>Book a free 30-minute call with Kaidon Labs and we'll talk through what makes sense for your team.</p>
+        <a class="btn btn-primary" href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a>
+      </div>
+    </article>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <svg class="brand-mark" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <rect width="64" height="64" rx="14" fill="#16b8a6"/>
+    <circle cx="20" cy="22" r="6" fill="#0f172a"/>
+    <circle cx="44" cy="20" r="5" fill="#ffffff"/>
+    <circle cx="46" cy="44" r="6" fill="#0f172a"/>
+    <circle cx="20" cy="42" r="4" fill="#ffffff"/>
+    <line x1="20" y1="22" x2="44" y2="20" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="22" x2="20" y2="42" stroke="#ffffff" stroke-width="2"/>
+    <line x1="20" y1="42" x2="46" y2="44" stroke="#0f172a" stroke-width="2"/>
+    <line x1="44" y1="20" x2="46" y2="44" stroke="#ffffff" stroke-width="2"/>
+  </svg>
+            Kaidon Labs
+          </div>
+          <p>Practical AI, built around how your business actually works.</p>
+        </div>
+
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="../../index.html#ai-audit">Free AI Audit</a></li>
+            <li><a href="../../index.html#site-demo">Site Demo</a></li>
+            <li><a href="../../index.html#services">Services</a></li>
+            <li><a href="../../index.html#expertise">What We Do</a></li>
+            <li><a href="../../blog/">Blog</a></li>
+            <li><a href="../../index.html#contact">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="mailto:brian@kaidonlabs.tech">brian@kaidonlabs.tech</a></li>
+            <li><a href="https://calendly.com/brian-kaidonlabs/30min" target="_blank" rel="noopener">Book a Meeting</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-col">
+          <h5>Follow</h5>
+          <!-- Social links are placeholders (href="#") — replace with real profile URLs before launch -->
+          <div class="footer-social">
+            <a href="#" aria-label="Kaidon Labs on LinkedIn">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.7h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.65 4.78 6.1V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
+            </a>
+            <a href="#" aria-label="Kaidon Labs on X (Twitter)">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.9 2H22l-7.6 8.7L23 22h-6.9l-5.4-6.7L4.4 22H1.3l8.1-9.3L1 2h7l4.9 6.1L18.9 2Zm-1.2 18h1.9L7.4 4H5.3L17.7 20Z"/></svg>
+            </a>
+            <a href="#" aria-label="Kaidon Labs on GitHub">
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.89 1.53 2.34 1.09 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.56-1.11-4.56-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.65 0 0 .84-.27 2.75 1.02a9.6 9.6 0 0 1 5 0c1.91-1.29 2.75-1.02 2.75-1.02.55 1.38.2 2.4.1 2.65.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.74c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <p>&copy; <span id="year"></span> Kaidon Labs. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="../../js/script.js"></script>
+</body>
+</html>
