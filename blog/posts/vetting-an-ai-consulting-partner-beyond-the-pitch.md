@@ -1,10 +1,10 @@
 ---
-title: "Vetting an AI Consulting Partner: What to Check Beyond the Pitch"
-date: "2026-10-01T10:11:20.597Z"
-slug: "vetting-an-ai-consulting-partner-beyond-the-pitch"
-excerpt: "The conversation tells you if you like them. Pricing, staffing, pilots, references, and exit terms tell you if the engagement will actually work."
-status: pending
-publishAt: "2026-10-02T10:11:20.597Z"
+title: 'Vetting an AI Consulting Partner: What to Check Beyond the Pitch'
+date: '2026-10-01T10:11:20.597Z'
+slug: vetting-an-ai-consulting-partner-beyond-the-pitch
+excerpt: >-
+  The conversation tells you if you like them. Pricing, staffing, pilots,
+  references, and exit terms tell you if the engagement will actually work.
 ---
 
 Most advice on choosing an AI consulting partner focuses on the conversation: do they listen, do they explain things clearly, do they seem trustworthy. All of that matters. But conversations are easy to get right in a sales process — the real signal is in the structure of the engagement itself. Before you sign anything, there are a handful of concrete, checkable things that tell you more about how a partnership will actually go than any amount of rapport in a discovery call.
