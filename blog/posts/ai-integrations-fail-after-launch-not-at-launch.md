@@ -1,10 +1,10 @@
 ---
-title: "The AI Integrations That Fail Don't Fail at Launch"
-date: "2026-10-04T10:11:44.280Z"
-slug: "ai-integrations-fail-after-launch-not-at-launch"
-excerpt: "Most AI integration failures aren't launch-day disasters — they're slow, unmonitored decay in the months after everyone stopped paying close attention."
-status: pending
-publishAt: "2026-10-05T10:11:44.280Z"
+title: The AI Integrations That Fail Don't Fail at Launch
+date: '2026-10-04T10:11:44.280Z'
+slug: ai-integrations-fail-after-launch-not-at-launch
+excerpt: >-
+  Most AI integration failures aren't launch-day disasters — they're slow,
+  unmonitored decay in the months after everyone stopped paying close attention.
 ---
 
 When people talk about AI integrations that fail, they usually picture the launch that never happens — the project that stalls in development, blows through its budget, or gets quietly shelved before anyone outside the team ever sees it. That's a real failure mode, but it's not the most common one. The more common failure looks like success for a while. The demo goes well. The team is proud of it. Early users like it. And then, three or six months later, it's noticeably worse, or nobody's using it, or it's technically still running but everyone's quietly routing around it.
