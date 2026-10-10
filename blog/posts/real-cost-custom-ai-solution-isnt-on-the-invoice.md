@@ -1,10 +1,10 @@
 ---
-title: "The Real Cost of a Custom AI Solution Isn't on the Invoice"
-date: "2026-10-07T10:11:33.560Z"
-slug: "real-cost-custom-ai-solution-isnt-on-the-invoice"
-excerpt: "The vendor quote is the easiest cost to see on a custom AI project — and rarely the biggest one."
-status: pending
-publishAt: "2026-10-08T10:11:33.560Z"
+title: The Real Cost of a Custom AI Solution Isn't on the Invoice
+date: '2026-10-07T10:11:33.560Z'
+slug: real-cost-custom-ai-solution-isnt-on-the-invoice
+excerpt: >-
+  The vendor quote is the easiest cost to see on a custom AI project — and
+  rarely the biggest one.
 ---
 
 When businesses evaluate a custom AI project, the comparison that gets the most attention is the one between vendor quotes — this proposal costs this much, that one costs a little less, and the decision gets made on the spread between invoices. That comparison is useful, but it's also incomplete in a way that causes real problems later. The invoice is the easiest cost to see. It is rarely the biggest one.
