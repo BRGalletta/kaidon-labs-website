@@ -1,10 +1,10 @@
 ---
-title: "Before You Add an AI Chatbot, Read Your Live Chat Transcripts"
-date: "2026-10-10T10:11:11.582Z"
-slug: "read-your-chat-transcripts-before-adding-an-ai-chatbot"
-excerpt: "The best evidence for whether an AI chatbot will help you is already sitting in your old support transcripts."
-status: pending
-publishAt: "2026-10-11T10:11:11.582Z"
+title: 'Before You Add an AI Chatbot, Read Your Live Chat Transcripts'
+date: '2026-10-10T10:11:11.582Z'
+slug: read-your-chat-transcripts-before-adding-an-ai-chatbot
+excerpt: >-
+  The best evidence for whether an AI chatbot will help you is already sitting
+  in your old support transcripts.
 ---
 
 Most businesses decide whether to add an AI chatbot by comparing feature lists or watching a demo. That's backwards. The best evidence for whether an AI chatbot will actually help you is sitting in a place almost nobody checks first: your existing live chat transcripts, support tickets, or email threads from the last few months.
