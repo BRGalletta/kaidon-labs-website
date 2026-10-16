@@ -1,10 +1,10 @@
 ---
-title: "The Quiet Tells That an AI Project Is Already Doomed"
-date: "2026-10-13T10:11:15.456Z"
-slug: "the-quiet-tells-that-an-ai-project-is-already-doomed"
-excerpt: "The warning signs of a failing AI project don't just show up before launch — here's how to spot them from inside a project that's already underway."
-status: pending
-publishAt: "2026-10-14T10:11:15.456Z"
+title: The Quiet Tells That an AI Project Is Already Doomed
+date: '2026-10-13T10:11:15.456Z'
+slug: the-quiet-tells-that-an-ai-project-is-already-doomed
+excerpt: >-
+  The warning signs of a failing AI project don't just show up before launch —
+  here's how to spot them from inside a project that's already underway.
 ---
 
 Most advice about doomed AI projects is written for people evaluating a project before it starts — a pre-launch checklist of red flags to watch for. That's useful, but it misses a more common situation: you're already inside the project. It's been running for months. There was a kickoff, a budget, maybe even a demo that got applause. And yet, if you're honest with yourself, something feels off. The question isn't "should we start this?" anymore — it's "is this one already lost, and I just haven't admitted it yet?"
