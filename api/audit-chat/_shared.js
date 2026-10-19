@@ -4,8 +4,13 @@
 // helpers live in api/_lib/ so sibling features (e.g. site-demo) don't need
 // to reach into this feature-specific file to get them.
 
-export { getAnthropicClient, MODEL, setTestFetchOverride } from "../_lib/anthropic.js";
-export { supabaseFetch } from "../_lib/supabase.js";
+// Import (which creates local bindings used below at the Claude calls) AND
+// re-export, so start.js/message.js can still pull these from here. A bare
+// `export { MODEL } from "..."` would re-export the name but NOT bind it
+// locally, so `model: MODEL` further down would throw "MODEL is not defined".
+import { getAnthropicClient, MODEL, setTestFetchOverride } from "../_lib/anthropic.js";
+import { supabaseFetch } from "../_lib/supabase.js";
+export { getAnthropicClient, MODEL, setTestFetchOverride, supabaseFetch };
 
 export const MAX_USER_TURNS = 8; // hard backstop even if the model never sets ready_for_synthesis
 // Kept small on purpose: each iteration is a sequential live Claude call within
