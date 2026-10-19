@@ -1,10 +1,10 @@
 ---
-title: "Skip the Scoring Matrix: Let Complaints Pick Your First AI Project"
-date: "2026-10-16T10:11:54.199Z"
-slug: "skip-the-scoring-matrix-let-complaints-pick-your-first-ai-project"
-excerpt: "Why the most useful list of AI candidates isn't a brainstorm or a scoring matrix, but the tasks your team already complains about every week."
-status: pending
-publishAt: "2026-10-17T10:11:54.199Z"
+title: 'Skip the Scoring Matrix: Let Complaints Pick Your First AI Project'
+date: '2026-10-16T10:11:54.199Z'
+slug: skip-the-scoring-matrix-let-complaints-pick-your-first-ai-project
+excerpt: >-
+  Why the most useful list of AI candidates isn't a brainstorm or a scoring
+  matrix, but the tasks your team already complains about every week.
 ---
 
 Most AI prioritization advice starts with a scoring matrix: plot every idea by impact and feasibility, rank the quadrants, pick the winner. That's a reasonable exercise, but it has a quiet flaw — it assumes you already have a clean, well-articulated list of candidate use cases to score in the first place. In practice, most lists are a mix of borrowed ideas from other companies, things a vendor pitched, and a handful of guesses about what "AI could help with." Scoring guesses just produces a ranked list of guesses.
