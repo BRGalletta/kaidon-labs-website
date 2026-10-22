@@ -1,10 +1,11 @@
 ---
-title: "The Prioritization Question Most AI Frameworks Skip"
-date: "2026-10-19T10:11:29.210Z"
-slug: "the-prioritization-question-most-ai-frameworks-skip"
-excerpt: "Impact and feasibility don't tell you how a project fails — here's the missing question: what does it cost you if the AI is wrong, and how long before you notice?"
-status: pending
-publishAt: "2026-10-20T10:11:29.210Z"
+title: The Prioritization Question Most AI Frameworks Skip
+date: '2026-10-19T10:11:29.210Z'
+slug: the-prioritization-question-most-ai-frameworks-skip
+excerpt: >-
+  Impact and feasibility don't tell you how a project fails — here's the missing
+  question: what does it cost you if the AI is wrong, and how long before you
+  notice?
 ---
 
 Most advice on prioritizing AI use cases asks two questions: how much impact would this have, and how feasible is it to build? Those are reasonable questions, but they both assume the project goes well. Neither one asks the question that actually determines how risky a use case is to attempt first: what does it cost you if the AI is wrong, and how long does it take you to notice?
