@@ -1,10 +1,11 @@
 ---
-title: "AI-Readiness Is an Expectations Problem, Not a Technology Problem"
-date: "2026-10-22T10:12:19.619Z"
-slug: "ai-readiness-is-an-expectations-problem"
-excerpt: "The factor that most often determines whether a small business benefits from an AI project isn't data or tech stack — it's whether expectations about imperfection and timeline were ever actually agreed on."
-status: pending
-publishAt: "2026-10-23T10:12:19.619Z"
+title: 'AI-Readiness Is an Expectations Problem, Not a Technology Problem'
+date: '2026-10-22T10:12:19.619Z'
+slug: ai-readiness-is-an-expectations-problem
+excerpt: >-
+  The factor that most often determines whether a small business benefits from
+  an AI project isn't data or tech stack — it's whether expectations about
+  imperfection and timeline were ever actually agreed on.
 ---
 
 Most conversations about "AI-readiness" focus on inputs: do you have clean data, a clear problem, a modern enough tech stack. Those questions matter. But they miss a quieter factor that ends up deciding whether a small business actually benefits from an AI project — and it has nothing to do with systems or spreadsheets. It's expectations.
