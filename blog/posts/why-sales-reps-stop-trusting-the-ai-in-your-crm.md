@@ -1,10 +1,11 @@
 ---
-title: "Why Sales Reps Stop Trusting the AI in Your CRM"
-date: "2026-10-25T10:10:20.353Z"
-slug: "why-sales-reps-stop-trusting-the-ai-in-your-crm"
-excerpt: "An AI-CRM integration can be technically flawless and still fail, because the part that's actually hard isn't the data pipe — it's earning the sales team's trust in what comes out the other end."
-status: pending
-publishAt: "2026-10-26T10:10:20.353Z"
+title: Why Sales Reps Stop Trusting the AI in Your CRM
+date: '2026-10-25T10:10:20.353Z'
+slug: why-sales-reps-stop-trusting-the-ai-in-your-crm
+excerpt: >-
+  An AI-CRM integration can be technically flawless and still fail, because the
+  part that's actually hard isn't the data pipe — it's earning the sales team's
+  trust in what comes out the other end.
 ---
 
 Most conversations about AI and your CRM focus on the technical hookup: which fields map to which, how the sync runs, what the API can and can't do. Those details matter, but they're not usually why an AI-powered CRM feature quietly fails. More often, the integration works exactly as designed — the lead score updates, the next-best-action suggestion appears, the auto-drafted follow-up email sits in the queue — and your sales team just doesn't use it. The technology shipped. The adoption didn't.
