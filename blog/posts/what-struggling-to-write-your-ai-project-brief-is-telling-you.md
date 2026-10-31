@@ -1,10 +1,10 @@
 ---
-title: "What Struggling to Write Your AI Project Brief Is Actually Telling You"
-date: "2026-10-28T10:13:35.430Z"
-slug: "what-struggling-to-write-your-ai-project-brief-is-telling-you"
-excerpt: "The hard part of writing an AI project brief isn't the format — it's what your answers (or lack of them) reveal about whether you're actually ready to start."
-status: pending
-publishAt: "2026-10-29T10:13:35.430Z"
+title: What Struggling to Write Your AI Project Brief Is Actually Telling You
+date: '2026-10-28T10:13:35.430Z'
+slug: what-struggling-to-write-your-ai-project-brief-is-telling-you
+excerpt: >-
+  The hard part of writing an AI project brief isn't the format — it's what your
+  answers (or lack of them) reveal about whether you're actually ready to start.
 ---
 
 Most advice on writing an AI project brief treats it as a documentation exercise: list the problem, state your success criteria, describe your data, set a scope boundary. That advice is correct, and it's also missing something. The harder truth is that the act of writing the brief is a diagnostic. How easily you can answer its questions tells you more about whether you're actually ready to start an AI project than the finished document does.
