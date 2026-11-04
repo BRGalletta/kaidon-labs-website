@@ -1,10 +1,10 @@
 ---
-title: "What Changes When Your Internal Chatbot Goes Customer-Facing"
-date: "2026-11-01T10:10:28.431Z"
-slug: "what-changes-when-your-internal-chatbot-goes-customer-facing"
-excerpt: "Turning an internal chatbot into a customer-facing one isn't a rollout — it's a rebuild of its data, tone, escalation paths, and ownership."
-status: pending
-publishAt: "2026-11-02T10:10:28.431Z"
+title: What Changes When Your Internal Chatbot Goes Customer-Facing
+date: '2026-11-01T10:10:28.431Z'
+slug: what-changes-when-your-internal-chatbot-goes-customer-facing
+excerpt: >-
+  Turning an internal chatbot into a customer-facing one isn't a rollout — it's
+  a rebuild of its data, tone, escalation paths, and ownership.
 ---
 
 It's a common path: a company builds an internal chatbot to help employees find answers faster, it works well enough that people start asking why customers can't have the same thing, and suddenly there's a plan to open it up externally. On paper it looks like a light lift — the bot already works, it already knows the content, why not just point it at a wider audience? In practice, taking an internal tool customer-facing is closer to a rebuild than a rollout, and the gap between those two expectations is where a lot of these projects run into trouble.

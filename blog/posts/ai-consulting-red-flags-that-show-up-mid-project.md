@@ -1,10 +1,10 @@
 ---
-title: "The AI Consulting Red Flags That Only Show Up Mid-Project"
-date: "2026-10-31T10:10:59.026Z"
-slug: "ai-consulting-red-flags-that-show-up-mid-project"
-excerpt: "The warning signs worth watching for don't end once you've signed — some only appear after the project is already underway."
-status: pending
-publishAt: "2026-11-01T10:10:59.026Z"
+title: The AI Consulting Red Flags That Only Show Up Mid-Project
+date: '2026-10-31T10:10:59.026Z'
+slug: ai-consulting-red-flags-that-show-up-mid-project
+excerpt: >-
+  The warning signs worth watching for don't end once you've signed — some only
+  appear after the project is already underway.
 ---
 
 Most advice on AI consulting red flags is written for the moment before you sign — the pitch, the proposal, the first few calls. That's useful, but it misses a whole category of warning signs that only show up once an engagement is actually underway. By then you've paid a deposit, cleared time on your team's calendar, and started telling stakeholders a project is in motion. Walking away costs more than it did during the sales process, which is exactly why it's worth knowing what trouble looks like once you're inside it.
