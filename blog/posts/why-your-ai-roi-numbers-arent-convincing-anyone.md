@@ -1,10 +1,10 @@
 ---
-title: "Why Your AI ROI Numbers Aren't Convincing Anyone"
-date: "2026-11-04T10:11:17.119Z"
-slug: "why-your-ai-roi-numbers-arent-convincing-anyone"
-excerpt: "A clean ROI calculation can still fail to persuade — because the question stakeholders are really asking isn't the one most reports answer."
-status: pending
-publishAt: "2026-11-05T10:11:17.119Z"
+title: Why Your AI ROI Numbers Aren't Convincing Anyone
+date: '2026-11-04T10:11:17.119Z'
+slug: why-your-ai-roi-numbers-arent-convincing-anyone
+excerpt: >-
+  A clean ROI calculation can still fail to persuade — because the question
+  stakeholders are really asking isn't the one most reports answer.
 ---
 
 You did the right things. You defined a baseline before launch, tracked hours saved or tickets resolved, tallied the maintenance cost honestly, and waited long enough after launch for the noise to settle. The spreadsheet is clean. The number is defensible. And yet when you bring it to the person who holds the budget, the response is some version of "okay, but is it actually worth it?" — the same question you thought you'd already answered.
