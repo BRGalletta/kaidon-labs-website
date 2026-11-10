@@ -1,10 +1,10 @@
 ---
-title: "Fine-Tuning vs. Retrieval: The Maintenance Question Everyone Skips"
-date: "2026-11-07T10:11:35.193Z"
-slug: "fine-tuning-vs-retrieval-maintenance-question"
-excerpt: "The fine-tuning vs. retrieval decision gets plenty of attention — the ongoing cost of maintaining whichever one you pick usually doesn't."
-status: pending
-publishAt: "2026-11-08T10:11:35.193Z"
+title: 'Fine-Tuning vs. Retrieval: The Maintenance Question Everyone Skips'
+date: '2026-11-07T10:11:35.193Z'
+slug: fine-tuning-vs-retrieval-maintenance-question
+excerpt: >-
+  The fine-tuning vs. retrieval decision gets plenty of attention — the ongoing
+  cost of maintaining whichever one you pick usually doesn't.
 ---
 
 Most conversations about fine-tuning versus retrieval stop at the decision. You weigh the tradeoffs, pick the approach that fits your use case, and move on to building. That's useful as far as it goes, but it skips a question that tends to matter more a year in than it did on day one: once you've made the choice, who is going to maintain it, and what does that actually involve?
