@@ -1,10 +1,10 @@
 ---
-title: "The Readiness Question Most Businesses Get Backwards"
-date: "2026-11-10T10:11:17.097Z"
-slug: "chatbot-readiness-question-backwards"
-excerpt: "The usual chatbot readiness checklist misses the one question that actually predicts success: who owns it after launch."
-status: pending
-publishAt: "2026-11-11T10:11:17.097Z"
+title: The Readiness Question Most Businesses Get Backwards
+date: '2026-11-10T10:11:17.097Z'
+slug: chatbot-readiness-question-backwards
+excerpt: >-
+  The usual chatbot readiness checklist misses the one question that actually
+  predicts success: who owns it after launch.
 ---
 
 Most conversations about chatbot readiness start with the same checklist: Do you get repetitive questions? Is your knowledge base organized? Is slow response time costing you deals? Those are fair questions, and worth asking. But they all evaluate readiness from the outside in — looking at symptoms in the business, not at who's actually going to be responsible for the thing once it's live.
