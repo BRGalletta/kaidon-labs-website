@@ -1,10 +1,10 @@
 ---
-title: "The 'AI Feature' Audit: How to Tell What You're Actually Paying For"
-date: "2026-11-13T10:13:06.512Z"
-slug: "ai-feature-audit-what-are-you-paying-for"
-excerpt: "Before you sign off on an 'AI-powered' tool, run this quick audit to find out whether you're buying genuine AI or automation with a label on top."
-status: pending
-publishAt: "2026-11-14T10:13:06.512Z"
+title: 'The ''AI Feature'' Audit: How to Tell What You''re Actually Paying For'
+date: '2026-11-13T10:13:06.512Z'
+slug: ai-feature-audit-what-are-you-paying-for
+excerpt: >-
+  Before you sign off on an 'AI-powered' tool, run this quick audit to find out
+  whether you're buying genuine AI or automation with a label on top.
 ---
 
 Every software vendor's pitch deck has an "AI-powered" slide now. Some of those products genuinely use AI — a model interpreting messy, ambiguous input and making a judgment call. A lot of them are automation wearing an AI label, because automation is harder to get excited about in a sales call. The distinction isn't just marketing pedantry. It determines what you should expect the tool to cost, how it should be priced, how it will behave when it's wrong, and whether you're buying something that improves over time or something that just runs the same fixed logic with a nicer interface.
