@@ -1,10 +1,11 @@
 ---
-title: "Why Well-Trained Teams Still Drift Back to the Old Way"
-date: "2026-11-16T10:11:57.364Z"
-slug: "why-teams-drift-back-old-way"
-excerpt: "Training and communication get most of the attention in an AI rollout, but teams often regress anyway because the workflows and metrics around them were never rebuilt."
-status: pending
-publishAt: "2026-11-17T10:11:57.364Z"
+title: Why Well-Trained Teams Still Drift Back to the Old Way
+date: '2026-11-16T10:11:57.364Z'
+slug: why-teams-drift-back-old-way
+excerpt: >-
+  Training and communication get most of the attention in an AI rollout, but
+  teams often regress anyway because the workflows and metrics around them were
+  never rebuilt.
 ---
 
 Most advice on preparing a team for an AI rollout focuses on training and communication: explain the why, demo the tool, answer questions, address fears. All of that matters. But there's a quieter failure pattern that shows up months after a rollout looks successful: a team that was well-trained, genuinely understood the tool, and used it enthusiastically in week one — slowly drifts back to the old way of doing things anyway.
